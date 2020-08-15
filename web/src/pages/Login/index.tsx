@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { RiEyeLine } from 'react-icons/ri';
+import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 
 import './styles.css';
 
 const Login: React.FC = () => {
-	function showPassword() {
-		console.log('toma a senha');
+	const [inputType, setInputType] = useState('password');
+
+	function handleChangeInputType(type: string) {
+		setInputType(type);
 	}
 
 	return (
@@ -18,13 +20,26 @@ const Login: React.FC = () => {
 					<h1>Fazer login</h1>
 					<input type="text" placeholder="E-mail" className="input" />
 					<div className="input-icon">
-						<input type="text" placeholder="Senha" className="input password" />
-						<RiEyeLine
-							color="#9C98A6"
-							size="24"
-							className="eye-icon"
-							onClick={showPassword}
+						<input
+							type={inputType}
+							placeholder="Senha"
+							className="input password"
 						/>
+						{inputType === 'password' ? (
+							<RiEyeLine
+								color="#9C98A6"
+								size="24"
+								className="eye-icon"
+								onClick={(e) => handleChangeInputType('text')}
+							/>
+						) : (
+							<RiEyeOffLine
+								color="#8257E5"
+								size="24"
+								className="eye-icon"
+								onClick={(e) => handleChangeInputType('password')}
+							/>
+						)}
 					</div>
 
 					<div className="actions">
