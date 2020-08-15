@@ -1,9 +1,14 @@
 import React from 'react';
+import Routes from './routes';
+import GlobalStyle from './assets/styles/global';
 
 function App() {
-  return (
-    <div>hello word</div>
-  );
+	return (
+		<>
+			<Routes />
+			<GlobalStyle />
+		</>
+	);
 }
 
 export default App;
