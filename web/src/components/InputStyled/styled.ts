@@ -15,6 +15,11 @@ export const Input = styled.input<InputProps>`
 	font-weight: normal;
 	font-size: 16px;
 	line-height: 24px;
+	position: relative;
+
+	&:focus {
+		border-left: 2px solid var(--color-primary);
+	}
 
 	${({ value }) => {
 		const hasValue = value.length > 0;
@@ -23,14 +28,14 @@ export const Input = styled.input<InputProps>`
 			css`
 				& + ${LabelText} {
 					transform: scale(0.6) translateY(-10px);
-					display:flex;
+					display: flex;
 					align-items: center;
-					padding-top:20px;
-					font-size:24px;
+					padding-top: 20px;
+					font-size: 24px;
 				}
-				
-				&{
-					padding-top:36px;
+
+				& {
+					padding-top: 36px;
 				}
 			`
 		);
