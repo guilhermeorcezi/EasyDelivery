@@ -8,12 +8,13 @@ import './styles.css';
 const Login: React.FC = () => {
 	const [inputType, setInputType] = useState('password');
 	const [password, setPassword] = useState('');
+	const [email, setEmail] = useState('');
 
 	function handleChangeInputType(type: string) {
 		setInputType(type);
 	}
 
-	function handleLogin(e: FormEvent){
+	function handleLogin(e: FormEvent) {
 		e.preventDefault();
 
 		console.log(password);
@@ -26,17 +27,24 @@ const Login: React.FC = () => {
 			<div className="form-side">
 				<form onSubmit={handleLogin}>
 					<h1>Fazer login</h1>
-					<input type="text" placeholder="E-mail" className="input" />
+					<div className="input-block">
+						<InputStyled
+							type="text"
+							placeholder="E-mail"
+							name="email"
+							label="E-mail"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+					</div>
 					<div className="input-icon">
 						<InputStyled
-							value={password}
-							name="password"
-							label="Senha"
-							hasValue="sim"
-							onChange={(e) => setPassword(e.target.value)}
 							type={inputType}
 							placeholder="Senha"
-							className="input"
+							name="password"
+							label="Senha"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 						{inputType === 'password' ? (
 							<RiEyeLine

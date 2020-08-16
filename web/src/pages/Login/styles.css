@@ -51,6 +51,10 @@
 	line-height: 24px;
 }
 
+#page-login .form-side form .input-block {
+	position: relative;
+}
+
 #page-login .form-side form .input-icon {
 	display: flex;
 	align-items: center;

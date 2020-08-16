@@ -28,7 +28,7 @@ export const Input = styled.input<InputProps>`
 					padding-top:20px;
 					font-size:24px;
 				}
-
+				
 				&{
 					padding-top:36px;
 				}

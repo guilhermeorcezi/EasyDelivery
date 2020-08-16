@@ -2,19 +2,16 @@ import React, { InputHTMLAttributes } from 'react';
 import { Input, LabelText } from './styled';
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
-	id?: string;
 	type: string;
 	name: string;
 	value: string;
 	label: string;
-	hasValue: string;
 	placeholder: string;
 	onChange?: (e: any) => void;
 }
 
 const InputStyled: React.FC<IProps> = ({
 	label,
-	id,
 	type,
 	name,
 	value,
@@ -22,7 +19,6 @@ const InputStyled: React.FC<IProps> = ({
 	placeholder,
 }) => {
 	const fieldId = `id_${name}`;
-	const hasValue = 'a';
 
 	return (
 		<>
@@ -31,8 +27,8 @@ const InputStyled: React.FC<IProps> = ({
 				type={type}
 				name={name}
 				value={value}
-        onChange={onChange}
-        placeholder={placeholder}
+				onChange={onChange}
+				placeholder={placeholder}
 			/>
 			<LabelText>{label}</LabelText>
 		</>
