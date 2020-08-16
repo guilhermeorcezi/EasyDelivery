@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
+import InputStyled from '../../components/InputStyled';
 
 import './styles.css';
 
 const Login: React.FC = () => {
 	const [inputType, setInputType] = useState('password');
+	const [password, setPassword] = useState('');
 
 	function handleChangeInputType(type: string) {
 		setInputType(type);
+	}
+
+	function handleLogin(e: FormEvent){
+		e.preventDefault();
+
+		console.log(password);
 	}
 
 	return (
@@ -16,14 +24,19 @@ const Login: React.FC = () => {
 			<div className="banner-side">EasyDelivery</div>
 
 			<div className="form-side">
-				<form>
+				<form onSubmit={handleLogin}>
 					<h1>Fazer login</h1>
 					<input type="text" placeholder="E-mail" className="input" />
 					<div className="input-icon">
-						<input
+						<InputStyled
+							value={password}
+							name="password"
+							label="Senha"
+							hasValue="sim"
+							onChange={(e) => setPassword(e.target.value)}
 							type={inputType}
 							placeholder="Senha"
-							className="input password"
+							className="input"
 						/>
 						{inputType === 'password' ? (
 							<RiEyeLine
