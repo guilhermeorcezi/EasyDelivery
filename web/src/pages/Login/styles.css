@@ -119,6 +119,10 @@
 	color: var(--color-title-in-primary);
 }
 
+#page-login .form-side form button:hover {
+	background: var(--color-secundary-dark);
+}
+
 #page-login .footer {
 	display: flex;
 	color: var(--color-text-complement);
