@@ -1,0 +1,40 @@
+#page-signup-success {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-primary);
+	color: var(--color-title-in-primary);
+}
+
+#page-signup-success .container {
+	max-width: 505px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#page-signup-success .container .content{
+    text-align: center;
+}
+
+#page-signup-success .container .content h1,
+#page-signup-success .container .content p {
+	margin-top: 50px;
+}
+
+#page-signup-success .container .footer {
+	margin-top: 80px;
+}
+
+#page-signup-success .container .footer a {
+    cursor: pointer;
+    text-decoration:none;
+    padding: 15px 40px;
+    background: var(--color-secundary);
+    border-radius: 8px;
+    color: var(--color-title-in-primary);
+}
+
