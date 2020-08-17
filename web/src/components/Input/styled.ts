@@ -4,7 +4,7 @@ interface InputProps {
 	value: string;
 }
 
-export const Input = styled.input<InputProps>`
+export const InputStyled = styled.input<InputProps>`
 	width: 100%;
 	height: 72px;
 	background: var(--color-box-footer);

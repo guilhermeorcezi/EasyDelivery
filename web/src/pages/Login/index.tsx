@@ -1,7 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
-import InputStyled from '../../components/InputStyled';
+import PasswordInput from '../../components/PasswordInput';
+import Input from '../../components/Input';
 
 import './styles.css';
 
@@ -28,7 +29,7 @@ const Login: React.FC = () => {
 				<form onSubmit={handleLogin}>
 					<h1>Fazer login</h1>
 					<div className="input-block">
-						<InputStyled
+						<Input
 							type="text"
 							placeholder="E-mail"
 							name="email"
@@ -38,29 +39,7 @@ const Login: React.FC = () => {
 						/>
 					</div>
 					<div className="input-icon">
-						<InputStyled
-							type={inputType}
-							placeholder="Senha"
-							name="password"
-							label="Senha"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-						/>
-						{inputType === 'password' ? (
-							<RiEyeLine
-								color="#9C98A6"
-								size="24"
-								className="eye-icon"
-								onClick={(e) => handleChangeInputType('text')}
-							/>
-						) : (
-							<RiEyeOffLine
-								color="#8257E5"
-								size="24"
-								className="eye-icon"
-								onClick={(e) => handleChangeInputType('password')}
-							/>
-						)}
+						<PasswordInput />
 					</div>
 
 					<div className="actions">

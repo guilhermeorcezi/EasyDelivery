@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes } from 'react';
-import { Input, LabelText } from './styled';
+import { InputStyled, LabelText } from './styled';
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 	type: string;
@@ -10,7 +10,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 	onChange?: (e: any) => void;
 }
 
-const InputStyled: React.FC<IProps> = ({
+const Input: React.FC<IProps> = ({
 	label,
 	type,
 	name,
@@ -22,7 +22,7 @@ const InputStyled: React.FC<IProps> = ({
 
 	return (
 		<>
-			<Input
+			<InputStyled
 				id={fieldId}
 				type={type}
 				name={name}
@@ -35,4 +35,4 @@ const InputStyled: React.FC<IProps> = ({
 	);
 };
 
-export default InputStyled;
+export default Input;
