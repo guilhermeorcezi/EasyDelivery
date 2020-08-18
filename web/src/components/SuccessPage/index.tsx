@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-import imgSignUpSucess from '../../../assets/images/signup-success.png'
+import imgSignUpSucess from '../../assets/images/signup-success.png'
 
 import './styles.css';
 

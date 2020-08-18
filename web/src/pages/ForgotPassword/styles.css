@@ -16,12 +16,17 @@
 
 #page-forgot-password .form-side {
 	display: grid;
-	align-items: center;
+	align-items: baseline;
 	justify-content: center;
 	flex: 1;
 }
 
+#page-forgot-password .form-side img {
+	margin-top: 30px;
+}
+
 #page-forgot-password .form-side form {
+	width: 352px;
 	display: grid;
 	align-items: center;
 	justify-content: center;
@@ -33,7 +38,7 @@
 	font-style: normal;
 	font-weight: 600;
 	font-size: 36px;
-	line-height: 36px;
+	line-height: 46px;
 	color: var(--color-text-title);
 	margin-bottom: 10px;
 }
@@ -44,12 +49,6 @@
 	font-size: 16px;
 	color: #6a6180;
 	margin-bottom: 30px;
-}
-
-#page-forgot-password .form-side form .avatar-block {
-	display: flex;
-	justify-content: space-around;
-	margin-bottom: 20px;
 }
 
 #page-forgot-password .form-side form .input {

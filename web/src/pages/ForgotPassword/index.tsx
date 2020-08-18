@@ -3,17 +3,11 @@ import React, { useState } from 'react';
 import goBackImg from '../../assets/images/goback.png';
 
 import Input from '../../components/Input';
-import PasswordInput from '../../components/PasswordInput';
-import Dropzone from '../../components/Dropzone';
 
 import './styles.css';
 
 const ForgotPassword: React.FC = () => {
-	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [whatsapp, setWhatsapp] = useState('');
-	const [selectedFile, setSelectedFile] = useState<File>();
 
 	function handleSignUp() {}
 
@@ -23,25 +17,12 @@ const ForgotPassword: React.FC = () => {
 				<img src={goBackImg} />
 
 				<form onSubmit={handleSignUp}>
-					<h1>Cadastre-se</h1>
+					<h1>Eita, esqueceu sua senha?</h1>
 					<span className="describe">
-						Preencha os dados abaixo para começar.
+						Não esquenta, vamos dar um jeito nisso.
 					</span>
-					<div className="avatar-block">
-						<Dropzone onFileUploaded={setSelectedFile} />
-					</div>
 
 					<div className="input-group">
-						<div className="input-block">
-							<Input
-								type="text"
-								placeholder="Nome"
-								name="name"
-								label="Nome"
-								value={name}
-								onChange={(e) => setName(e.target.value)}
-							/>
-						</div>
 						<div className="input-block">
 							<Input
 								type="text"
@@ -54,24 +35,7 @@ const ForgotPassword: React.FC = () => {
 						</div>
 					</div>
 
-					<div className="input-group">
-						<div className="input-icon">
-							<PasswordInput />
-						</div>
-
-						<div className="input-block">
-							<Input
-								type="text"
-								placeholder="Whatsapp"
-								name="whatsapp"
-								label="Whatsapp"
-								value={whatsapp}
-								onChange={(e) => setWhatsapp(e.target.value)}
-							/>
-						</div>
-					</div>
-
-					<button type="submit">Entrar</button>
+					<button type="submit">Enviar</button>
 				</form>
 			</div>
 
