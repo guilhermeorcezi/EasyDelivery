@@ -13,7 +13,6 @@ const deliveriesController = new DeliveriesController();
 const favoritesController = new FavoritesController();
 
 routes.post('/user', userController.create);
-routes.post('/user/motoboy', motoboyController.create);
 
 routes.get('/motoboys', motoboyController.index);
 
