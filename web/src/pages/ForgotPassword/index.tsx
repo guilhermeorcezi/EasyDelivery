@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import goBackImg from '../../assets/images/goback.png';
 
 import Input from '../../components/Input';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -14,7 +15,9 @@ const ForgotPassword: React.FC = () => {
 	return (
 		<main id="page-forgot-password">
 			<div className="form-side">
-				<img src={goBackImg} />
+				<Link to="/">
+					<img src={goBackImg} />
+				</Link>
 
 				<form onSubmit={handleSignUp}>
 					<h1>Eita, esqueceu sua senha?</h1>

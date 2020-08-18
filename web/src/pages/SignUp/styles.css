@@ -22,6 +22,7 @@
 }
 
 #page-user-sign-up .form-side form {
+	width: 352px;
 	display: grid;
 	align-items: center;
 	justify-content: center;
@@ -87,8 +88,9 @@
 	align-items: center;
 }
 
-#page-user-sign-up .form-side form .input-checkbox {
-	margin-right: 16px;
+#page-user-sign-up .form-side form .input-group {
+	display: flex;
+	
 }
 
 #page-user-sign-up .form-side form button {

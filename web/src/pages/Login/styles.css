@@ -92,12 +92,14 @@
 	line-height: 24px;
 }
 
-#page-login .form-side form .actions span {
+#page-login .form-side form .actions span, #page-login .form-side form .actions a  {
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 24px;
+	text-decoration: none;
+	color: var(--color-text-complement);
 }
 
 #page-login .form-side form button {

@@ -3,6 +3,7 @@ import React, { useState, FormEvent } from 'react';
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 import PasswordInput from '../../components/PasswordInput';
 import Input from '../../components/Input';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -52,7 +53,7 @@ const Login: React.FC = () => {
 							/>
 							<label htmlFor="remember_pwd">Lembrar-me</label>
 						</div>
-						<span>Esqueci minha senha</span>
+						<Link to="/forgot-password">Esqueci minha senha</Link>
 					</div>
 
 					<button type="submit">Entrar</button>
@@ -61,7 +62,7 @@ const Login: React.FC = () => {
 				<div className="footer">
 					<div className="register-block">
 						<span>Não tem conta?</span>
-						<a href="/">Cadastre-se</a>
+						<Link to="/sign-up">Cadastre-se</Link>
 					</div>
 					<span>É de graça</span>
 				</div>
