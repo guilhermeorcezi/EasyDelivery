@@ -1,6 +1,6 @@
 .dropzone {
-    height: 180px;
-    width: 200px;
+    height: 100px;
+    width: 150px;
 	background: var(--color-input-background);
 	border-radius: 10px;
 	cursor: pointer;
@@ -18,8 +18,8 @@
 }
 
 .dropzone p {
-	width: calc(100% - 60px);
-	height: calc(100% - 60px);
+	width: calc(100% - 30px);
+	height: calc(100% - 30px);
 	border-radius: 10px;
 	border: 1px dashed var(--color-text-complement);
 

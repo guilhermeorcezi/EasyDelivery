@@ -24,7 +24,9 @@ const SignUp: React.FC = () => {
 
 				<form onSubmit={handleSignUp}>
 					<h1>Cadastre-se</h1>
-
+					<span className="describe">
+						Preencha os dados abaixo para começar.
+					</span>
 					<div className="avatar-block">
 						<Dropzone onFileUploaded={setSelectedFile} />
 					</div>
@@ -71,13 +73,6 @@ const SignUp: React.FC = () => {
 
 					<button type="submit">Entrar</button>
 				</form>
-
-				<div className="footer">
-					<div className="register-block">
-						<span>Já possui conta?</span>
-						<a href="/">Efetuar Login</a>
-					</div>
-				</div>
 			</div>
 
 			<div className="banner-side">EasyDelivery</div>

@@ -35,22 +35,21 @@
 	font-size: 36px;
 	line-height: 36px;
 	color: var(--color-text-title);
+	margin-bottom: 10px;
+}
+
+#page-user-sign-up .form-side form .describe {
+	font-family: Poppins;
+	font-weight: normal;
+	font-size: 16px;
+	color: #6a6180;
 	margin-bottom: 30px;
 }
 
-#page-user-sign-up .form-side form .avatar-block{
-    display:flex;
-    justify-content: space-around;
-    margin-bottom:30px;
-}
-
-#page-user-sign-up .form-side form .input-group {
-    display: flex;
-    margin-top:20px;
-}
-
-#page-user-sign-up .form-side form .input-group input:first-child {
-    margin-right:20px;
+#page-user-sign-up .form-side form .avatar-block {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
 }
 
 #page-user-sign-up .form-side form .input {
@@ -97,41 +96,19 @@
 	height: 56px;
 	background: var(--color-secundary);
 	border-radius: 8px;
-	margin-top: 5px;
 	border: none;
 	cursor: pointer;
-    justify-self: center;
+	justify-self: center;
 	font-family: Archivo;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 26px;
-    margin-top:50px;
+	margin-top: 20px;
 	text-align: center;
 	color: var(--color-title-in-primary);
 }
 
 #page-user-sign-up .form-side form button:hover {
 	background: var(--color-secundary-dark);
-}
-
-#page-user-sign-up .footer {
-	display: flex;
-	color: var(--color-text-complement);
-	justify-content: space-between;
-}
-
-#page-user-sign-up .footer .register-block {
-	display: flex;
-	flex-direction: column;
-	color: var(--color-text-base);
-}
-
-#page-user-sign-up .footer .register-block span:last-child {
-	color: #6a6180;
-	font-family: Poppins;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 26px;
-	text-decoration: underline;
 }
