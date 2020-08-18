@@ -6,7 +6,7 @@ export default class UserController {
 		const { name, email, password, whatsapp, avatar } = request.body;
 
 		try {
-			await db('users').insert({ name, email, password, whatsapp, avatar });
+			await db('users').insert({ name, email, password, whatsapp, avatar, is_motoboy:false });
 
 			response.status(201).json({ created: 'ok' });
 		} catch (err) {

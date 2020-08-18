@@ -36,6 +36,7 @@ export default class UserController {
 				password,
 				whatsapp,
 				avatar,
+				is_motoboy:true
 			});
 
 			const user_id = insertedUser[0];

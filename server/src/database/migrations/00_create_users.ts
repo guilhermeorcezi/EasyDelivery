@@ -9,6 +9,7 @@ export async function up(knex: Knex) {
 		table.string('password').notNullable();
 		table.string('whatsapp').notNullable().unique();
 		table.string('avatar').notNullable();
+		table.boolean('is_motoboy').notNullable();
 	});
 }
 
