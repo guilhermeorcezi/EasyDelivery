@@ -3,7 +3,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 import Login from './pages/Login';
 import Page404 from './pages/Page404';
-import Success from './pages/SignUp/Success';
+import Success from './components/Success';
 import SignUp from './pages/SignUp';
 
 function Routes() {

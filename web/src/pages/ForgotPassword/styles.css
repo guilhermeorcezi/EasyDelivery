@@ -1,0 +1,114 @@
+#page-forgot-password {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-content: center;
+	color: var(--color-text-in-primary);
+}
+
+#page-forgot-password .banner-side {
+	background: var(--color-primary);
+	width: 768px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#page-forgot-password .form-side {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+}
+
+#page-forgot-password .form-side form {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	padding-top: 0;
+}
+
+#page-forgot-password .form-side form h1 {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 36px;
+	color: var(--color-text-title);
+	margin-bottom: 10px;
+}
+
+#page-forgot-password .form-side form .describe {
+	font-family: Poppins;
+	font-weight: normal;
+	font-size: 16px;
+	color: #6a6180;
+	margin-bottom: 30px;
+}
+
+#page-forgot-password .form-side form .avatar-block {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+
+#page-forgot-password .form-side form .input {
+	width: 100%;
+	height: 72px;
+	background: var(--color-box-footer);
+	border: 1px solid var(--color-line-in-white);
+	box-sizing: border-box;
+	border-radius: 8px 8px 0px 0px;
+	padding: 24px 60px 24px 24px;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+#page-forgot-password .form-side form .input-block {
+	position: relative;
+}
+
+#page-forgot-password .form-side form .input-icon {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+#page-forgot-password .form-side form .input-icon .eye-icon {
+	position: absolute;
+	cursor: pointer;
+	top: 5;
+	right: 33px;
+}
+
+#page-forgot-password .form-side form .input-block {
+	display: flex;
+	align-items: center;
+}
+
+#page-forgot-password .form-side form .input-checkbox {
+	margin-right: 16px;
+}
+
+#page-forgot-password .form-side form button {
+	width: 352px;
+	height: 56px;
+	background: var(--color-secundary);
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	justify-self: center;
+	font-family: Archivo;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 26px;
+	margin-top: 20px;
+	text-align: center;
+	color: var(--color-title-in-primary);
+}
+
+#page-forgot-password .form-side form button:hover {
+	background: var(--color-secundary-dark);
+}
