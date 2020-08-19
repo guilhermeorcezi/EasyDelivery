@@ -4,6 +4,7 @@ import imgAvatar from '../../assets/images/user-avatar.png';
 import logoutIcon from '../../assets/icons/logout-icon.png';
 
 import Header from '../../components/Header';
+import Banner from '../../components/Banner'
 
 import './styles.css';
 
@@ -16,7 +17,9 @@ const Home: React.FC = () => {
 				rightContent={logoutIcon}
 			/>
 
-			<div className="container"></div>
+			<div className="container">
+				<Banner/>
+			</div>
 			<div className="content"></div>
 		</div>
 	);
