@@ -16,21 +16,20 @@ const Landing: React.FC = () => {
 				<div className="logo-container">
 					<img src={logoImg} alt="Easy Delivery" className="logo" />
 					<h2>
-						Plataforma para encontrar entregadores. Cadastre-se como um entregador para ser contactado
-						ou como cliente para procurar entregadores perto de você.
+						Plataforma para encontrar entregadores perto de você.
 					</h2>
 				</div>
 
 				<img src={imgBanner} alt="Easy Delivery" className="banner-image" />
 
 				<div className="buttons-container">
-					<Link to="/study" className="study">
-						<FaUserAlt className="button-icon" />
-						Me cadastrar
+					<Link to="/sign-up" className="sign-up">
+						<FaUserAlt className="button-icon" size={24} />
+						Cadastrar
 					</Link>
 
-					<Link to="/give-classes" className="give-classes">
-						<FaSignInAlt className="button-icon" />
+					<Link to="/sign-in" className="sign-in">
+						<FaSignInAlt className="button-icon" size={24} />
 						Entrar
 					</Link>
 				</div>

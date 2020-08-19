@@ -11,7 +11,6 @@ const Login: React.FC = () => {
 
 	function handleLogin(e: FormEvent) {
 		e.preventDefault();
-
 	}
 
 	return (

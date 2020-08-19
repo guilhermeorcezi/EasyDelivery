@@ -8,17 +8,19 @@ import SignUp from './pages/SignUp';
 import ForgotPassword from './pages/ForgotPassword';
 import ChooseUser from './pages/ChooseUser';
 import Landing from './pages/Landing';
+import Home from './pages/Home';
 
 function Routes() {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route path="/" exact component={Login} />
+				<Route path="/" exact component={Landing} />
+				<Route path="/sign-in" component={Login} />
 				<Route path="/success" component={Success} />
 				<Route path="/sign-up" component={SignUp} />
 				<Route path="/forgot-password" component={ForgotPassword} />
 				<Route path="/choosing" component={ChooseUser} />
-				<Route path="/Landing" component={Landing} />
+				<Route path="/home" component={Home} />
 				<Route component={Page404} />
 			</Switch>
 		</BrowserRouter>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import goBackImg from '../../assets/images/goback.png';
+import goBackIcon from '../../assets/icons/goback-blue.png';
 
 import Input from '../../components/Input';
 import PasswordInput from '../../components/PasswordInput';
@@ -28,7 +28,7 @@ const SignUp: React.FC<Props> = ({ is_motoboy }) => {
 		<main id="page-user-sign-up">
 			<div className="form-side">
 				<Link to="/">
-					<img src={goBackImg} alt="Back" />
+					<img src={goBackIcon} alt="Back" />
 				</Link>
 
 				<form onSubmit={handleSignUp}>

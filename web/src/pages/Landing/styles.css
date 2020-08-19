@@ -36,8 +36,8 @@
 	margin: 3.2rem 0;
 }
 .buttons-container a {
-	width: 30rem;
-	height: 10.4rem;
+	width: 27rem;
+	height: 9rem;
 	border-radius: 0.8rem;
 	margin-right: 1.6rem;
 	font: 700 2rem Archivo;
@@ -57,16 +57,16 @@
 .buttons-container a img {
 	margin-right: 1rem;
 }
-.buttons-container a.study {
+.buttons-container a.sign-up {
 	background: var(--color-primary-lighter);
 }
-.buttons-container a.give-classes {
+.buttons-container a.sign-in {
 	background: var(--color-secundary);
 }
-.buttons-container a.study:hover {
+.buttons-container a.sign-up:hover {
 	background: var(--color-primary-light);
 }
-.buttons-container a.give-classes:hover {
+.buttons-container a.sign-in:hover {
 	background: var(--color-secundary-dark);
 }
 
@@ -109,7 +109,7 @@
 	}
 	.logo-container h2 {
 		text-align: initial;
-		font-size: 1.6rem;
+		font-size: 2.4rem;
 	}
 	.banner-image {
 		grid-area: hero;
@@ -128,6 +128,6 @@
     }
     
     .button-icon{
-       margin-right: 10px;
+       margin-right: 15px;
     }
 }
