@@ -2,8 +2,6 @@ import React from 'react';
 
 import { FaSignInAlt, FaUserAlt } from 'react-icons/fa';
 
-import Banner from '../../components/Banner';
-
 import { Link } from 'react-router-dom';
 
 import './styles.css';

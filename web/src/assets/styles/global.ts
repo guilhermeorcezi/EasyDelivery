@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
 	--color-button-text: #ffffff;
 	--color-box-base: #ffffff;
 	--color-box-footer: #fafafc;
+	--color-background-primary:#E5E5E5;
 	
 	font-size: 60%;
 }

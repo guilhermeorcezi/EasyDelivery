@@ -8,7 +8,7 @@ import SignUp from './pages/SignUp';
 import ForgotPassword from './pages/ForgotPassword';
 import ChooseUser from './pages/ChooseUser';
 import Landing from './pages/Landing';
-import Home from './pages/Home';
+import Main from './pages/Main';
 
 function Routes() {
 	return (
@@ -20,7 +20,7 @@ function Routes() {
 				<Route path="/sign-up" component={SignUp} />
 				<Route path="/forgot-password" component={ForgotPassword} />
 				<Route path="/choosing" component={ChooseUser} />
-				<Route path="/home" component={Home} />
+				<Route path="/main" component={Main} />
 				<Route component={Page404} />
 			</Switch>
 		</BrowserRouter>

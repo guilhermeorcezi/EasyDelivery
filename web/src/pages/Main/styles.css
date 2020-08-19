@@ -1,0 +1,40 @@
+#page-main {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+#page-main .container {
+	background: var(--color-primary);
+	color: var(--color-text-in-primary);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 180px;
+}
+
+#page-main .container .container-logo{
+	width:450px;
+}
+
+#page-main .container h2 {
+	font-size: 2.4rem;
+	line-height: 3.6rem;
+	margin-top: 0.8rem;
+	font-weight: normal;
+}
+
+#page-main .container .logo {
+	width: 450px;
+	height: 180px;
+	height: 100%;
+}
+
+#page-main .banner-image {
+	width: 500px;
+}
+
+#page-main .content{
+	background: var(--color-background-primary);
+}
