@@ -8,18 +8,14 @@ import logoImg from '../../assets/images/logo.png';
 import { FaExchangeAlt, FaSearch } from 'react-icons/fa';
 
 import Header from '../../components/Header';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
 const Main: React.FC = () => {
 	return (
 		<div id="page-main">
-			<Header
-				leftContent={imgAvatar}
-				user="Guilherme Orcezi"
-				rightContent={logoutIcon}
-			/>
+			<Header user="Guilherme Orcezi" />
 
 			<div className="container">
 				<div className="container-logo">
