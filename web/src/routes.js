@@ -6,7 +6,6 @@ import Page404 from './pages/Page404';
 import Success from './components/SuccessPage';
 import SignUp from './pages/SignUp';
 import ForgotPassword from './pages/ForgotPassword';
-import ChooseUser from './pages/ChooseUser';
 import Landing from './pages/Landing';
 import Main from './pages/Main';
 
@@ -19,7 +18,6 @@ function Routes() {
 				<Route path="/success" component={Success} />
 				<Route path="/sign-up" component={SignUp} />
 				<Route path="/forgot-password" component={ForgotPassword} />
-				<Route path="/choosing" component={ChooseUser} />
 				<Route path="/main" component={Main} />
 				<Route component={Page404} />
 			</Switch>

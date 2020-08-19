@@ -46,7 +46,7 @@ const Main: React.FC = () => {
 
 					<Link to="/sign-in" className="sign-in">
 						<FaExchangeAlt className="button-icon" size={24} />
-						Sou entregador
+						Fazer entregas
 					</Link>
 				</div>
 			</div>
