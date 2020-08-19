@@ -1,6 +1,5 @@
 import React, { useState, FormEvent } from 'react';
 
-import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 import PasswordInput from '../../components/PasswordInput';
 import Input from '../../components/Input';
 import { Link } from 'react-router-dom';
@@ -8,18 +7,11 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 
 const Login: React.FC = () => {
-	const [inputType, setInputType] = useState('password');
-	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
-
-	function handleChangeInputType(type: string) {
-		setInputType(type);
-	}
 
 	function handleLogin(e: FormEvent) {
 		e.preventDefault();
 
-		console.log(password);
 	}
 
 	return (

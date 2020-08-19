@@ -28,7 +28,7 @@ const SignUp: React.FC<Props> = ({ is_motoboy }) => {
 		<main id="page-user-sign-up">
 			<div className="form-side">
 				<Link to="/">
-					<img src={goBackImg} />
+					<img src={goBackImg} alt="Back" />
 				</Link>
 
 				<form onSubmit={handleSignUp}>

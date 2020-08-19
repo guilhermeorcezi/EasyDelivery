@@ -16,7 +16,7 @@ const ForgotPassword: React.FC = () => {
 		<main id="page-forgot-password">
 			<div className="form-side">
 				<Link to="/">
-					<img src={goBackImg} />
+					<img src={goBackImg} alt="Back" />
 				</Link>
 
 				<form onSubmit={handleSignUp}>
