@@ -1,7 +1,5 @@
 import React from 'react';
 
-import imgAvatar from '../../assets/images/user-avatar.png';
-import logoutIcon from '../../assets/icons/logout-icon.png';
 import imgBanner from '../../assets/images/easydelibery-banner.svg';
 import logoImg from '../../assets/images/logo.png';
 

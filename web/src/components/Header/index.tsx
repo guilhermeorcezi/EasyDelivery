@@ -5,6 +5,7 @@ import logoutIcon from '../../assets/icons/logout-icon.png';
 import goBackIcon from '../../assets/icons/goback-light.png';
 import imgLogo from '../../assets/images/logo.png';
 import imgAvatarUpload from '../../assets/icons/avatar-upload.png';
+import imgDeliveryman from '../../assets/images/deliveryman.png'
 
 import { Link } from 'react-router-dom';
 
@@ -68,6 +69,7 @@ const Header: React.FC<Props> = ({
 							<h1>Estes são os entregadores disponíveis</h1>
 						</div>
 						<div className="container-info">
+						<img src={imgDeliveryman} alt="Deliveryman"/>
 							Nós temos {deliveryman_amount} entregadores.
 						</div>
 					</div>

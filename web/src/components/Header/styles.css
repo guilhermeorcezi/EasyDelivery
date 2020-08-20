@@ -124,4 +124,13 @@
 	font-size: 12px;
 	line-height: 20px;
 	color: var(--color-text-in-primary);
+	width: 150px;
 }
+
+#header-content .container-content .container-info img{
+	height:45px;
+	width:45px;
+	margin-right: 20px;
+}
+
+
