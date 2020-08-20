@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import UfInput from '../../components/UfInput';
 import CityInput from '../../components/CityInput';
 import Header from '../../components/Header';
-
-import imgUser from '../../assets/images/user-avatar.png';
-import iconWhatsapp from '../../assets/icons/whatsapp.png'
+import DeliverymanItem from '../../components/DeliverymanItem';
 
 import './styles.css';
 
@@ -36,22 +34,8 @@ const DeliverymanList: React.FC = () => {
 					</div>
 				</div>
 
-				<div className="list-item">
-					<div className="item-profile">
-						<img src={imgUser} alt="User" className="image-avatar" />
-						<div className="item-about">
-							<h3>Guilherme Orcezi</h3>
-							<span>Potim/SP</span>
-						</div>
-					</div>
-
-					<div className="item-action">
-						<a href="#" target="_blank">
-                            <img src={iconWhatsapp} alt="Whatsapp"/>
-							Entrar em contato
-						</a>
-					</div>
-				</div>
+				<DeliverymanItem />
+				<DeliverymanItem />
 			</div>
 		</div>
 	);

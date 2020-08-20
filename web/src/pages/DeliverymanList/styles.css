@@ -46,52 +46,6 @@
 
 #page-list .container .search-group .input-group .input-block select {
 	width: 100%;
+	border-radius:8px;
 }
 
-#page-list .container .list-item {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: var(--color-box-base);
-	border: 1px solid var(--color-line-in-white);
-	box-sizing: border-box;
-	border-radius: 8px;
-	padding: 30px;
-}
-
-#page-list .container .list-item .item-profile {
-	display: flex;
-	align-items: center;
-}
-
-#page-list .container .list-item .image-avatar {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-}
-
-#page-list .container .list-item .item-profile .item-about {
-	padding: 0 30px;
-}
-
-#page-list .container .list-item .item-action {
-	background: var(--color-secundary);
-	border-radius: 8px;
-	padding: 15px 30px;
-}
-
-#page-list .container .list-item .item-action a {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-decoration: none;
-	font-family: Archivo;
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 26px;
-	color: var(--color-title-in-primary);
-}
-
-#page-list .container .list-item .item-action img {
-	margin-right: 10px;
-}

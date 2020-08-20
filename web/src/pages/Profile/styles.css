@@ -62,5 +62,6 @@
 
 #page-profile .container form .input-group .input-block select{
 	width:100%;
+	border-radius:8px;
 }
 
