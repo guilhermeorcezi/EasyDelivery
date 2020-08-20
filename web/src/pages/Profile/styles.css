@@ -46,6 +46,7 @@
 
 #page-profile .container form .input-block input {
 	height: 56px;
+	border-radius: 8px;
 }
 
 #page-profile .container form .input-group {
