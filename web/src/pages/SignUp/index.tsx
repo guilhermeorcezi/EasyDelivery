@@ -6,9 +6,10 @@ import goBackIcon from '../../assets/icons/goback-blue.png';
 import Input from '../../components/Input';
 import PasswordInput from '../../components/PasswordInput';
 import Dropzone from '../../components/Dropzone';
-import LocalInput from '../../components/LocalInput';
+import UfInput from '../../components/UfInput';
 
 import './styles.css';
+import CityInput from '../../components/CityInput';
 
 interface Props {
 	is_motoboy: boolean;
@@ -80,10 +81,11 @@ const SignUp: React.FC<Props> = ({ is_motoboy }) => {
 					</div>
 
 					<div className="input-group">
-						<LocalInput
-							selectedUf={SelectedUF}
-							setSelectedUf={setSelectedUF}
+						<UfInput selectedUf={SelectedUF} setSelectedUf={setSelectedUF} />
+
+						<CityInput
 							selectedCity={selectedCity}
+							selectedUF={SelectedUF}
 							setSelectedCity={setSelectedCity}
 						/>
 					</div>

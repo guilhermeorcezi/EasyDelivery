@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import './styles.css';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
+import UfInput from '../../components/UfInput';
+import CityInput from '../../components/CityInput';
 
 const Profile: React.FC = () => {
 	const [name, setName] = useState('');
@@ -69,28 +71,19 @@ const Profile: React.FC = () => {
 						/>
 					</div>
 
-					<div className="input-block">
-						<legend>Seu estado</legend>
-						<Input
-							type="text"
-							placeholder="Uf"
-							name="uf"
-							label="Uf"
-							value={uf}
-							onChange={(e) => setUf(e.target.value)}
-						/>
-					</div>
-
-					<div className="input-block">
-						<legend>Sua cidade</legend>
-						<Input
-							type="text"
-							placeholder="City"
-							name="city"
-							label="City"
-							value={city}
-							onChange={(e) => setCity(e.target.value)}
-						/>
+					<div className="input-group">
+						<div className="input-block">
+							<legend>Seu estado</legend>
+							<UfInput selectedUf={uf} setSelectedUf={setUf} />
+						</div>
+						<div className="input-block">
+							<legend>Sua cidade</legend>
+							<CityInput
+								selectedUF={uf}
+								selectedCity={city}
+								setSelectedCity={setCity}
+							/>
+						</div>
 					</div>
 				</form>
 			</div>

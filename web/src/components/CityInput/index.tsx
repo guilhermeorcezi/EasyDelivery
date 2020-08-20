@@ -12,27 +12,31 @@ interface ApiCityResponse {
 }
 
 interface Props {
-	value: string;
-	selectedUf: string;
+	selectedCity: string;
+	selectedUF: string;
 	setSelectedCity: (e: string) => void;
 }
 
-const CityInput: React.FC<Props> = ({ value, selectedUf, setSelectedCity }) => {
+const CityInput: React.FC<Props> = ({
+	selectedCity,
+	selectedUF,
+	setSelectedCity,
+}) => {
 	const [cities, setCities] = useState<string[]>([]);
 
 	useEffect(() => {
-        console.log(selectedUf)
-		if (selectedUf === '0') return;
+		console.log(selectedUF);
+		if (selectedUF === '0') return;
 
 		axios
 			.get<ApiCityResponse[]>(
-				`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUf}/municipios`
+				`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUF}/municipios`
 			)
 			.then((response) => {
 				const CitiesNames = response.data.map((city) => city.nome);
 				setCities(CitiesNames);
 			});
-	}, []);
+	}, [selectedUF]);
 
 	function handleSelectCity(event: ChangeEvent<HTMLSelectElement>) {
 		const uf = event.target.value;
@@ -42,7 +46,7 @@ const CityInput: React.FC<Props> = ({ value, selectedUf, setSelectedCity }) => {
 
 	return (
 		<>
-			<select name="city" id="city" value={value} onChange={handleSelectCity}>
+			<select name="city" id="city" value={selectedCity} onChange={handleSelectCity}>
 				<option value="0">Selecionar Cidade</option>
 				{cities.map((city) => (
 					<option key={city} value={city}>

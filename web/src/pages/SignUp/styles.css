@@ -90,7 +90,10 @@
 
 #page-user-sign-up .form-side form .input-group {
 	display: flex;
-	
+}
+
+#page-user-sign-up .form-side form .input-group select {
+	width: 50%;
 }
 
 #page-user-sign-up .form-side form button {

@@ -1,4 +1,4 @@
-#city {
+#uf {
 	border-radius: 8px 8px 0px 0px;
 	border: none;
 	background: var(--color-input-background);
@@ -7,11 +7,11 @@
 	padding: 15px 10px;
 }
 
-#city option {
+#uf option {
 	color: var(--color-text-base);
 }
 
-#city option:checked {
+#uf option:checked {
 	background-color: var(--color-select-selected) !important;
 	border-left: 2px solid var(--color-primary);
 }
