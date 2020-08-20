@@ -11,11 +11,7 @@ import UfInput from '../../components/UfInput';
 import './styles.css';
 import CityInput from '../../components/CityInput';
 
-interface Props {
-	is_motoboy: boolean;
-}
-
-const SignUp: React.FC<Props> = ({ is_motoboy }) => {
+const SignUp: React.FC = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');

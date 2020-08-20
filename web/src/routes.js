@@ -9,6 +9,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import Landing from './pages/Landing';
 import Main from './pages/Main';
 import Profile from './pages/Profile';
+import DeliverymanList from './pages/DeliverymanList';
 
 function Routes() {
 	return (
@@ -21,6 +22,7 @@ function Routes() {
 				<Route path="/forgot-password" component={ForgotPassword} />
 				<Route path="/main" component={Main} />
 				<Route path="/profile" component={Profile} />
+				<Route path="/list" component={DeliverymanList} />
 				<Route component={Page404} />
 			</Switch>
 		</BrowserRouter>

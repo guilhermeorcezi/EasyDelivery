@@ -48,6 +48,16 @@ const Header: React.FC<Props> = ({ user, children, profile }) => {
 					</div>
 				</div>
 			)}
+			{children && !profile && (
+				<div id="header-content">
+					<div className="container-content">
+						<div className="container-title">
+							<h1>Estes são os entregadores disponíveis</h1>
+						</div>
+						<div className="container-info">Nós temos 32 entregadores.</div>
+					</div>
+				</div>
+			)}
 		</>
 	);
 };
