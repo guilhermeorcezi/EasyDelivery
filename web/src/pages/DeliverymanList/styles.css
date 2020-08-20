@@ -46,6 +46,19 @@
 
 #page-list .container .search-group .input-group .input-block select {
 	width: 100%;
-	border-radius:8px;
+	border-radius: 8px;
 }
 
+#page-list .container .has-nothing {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 26px;
+	text-align: center;
+	color: var(--color-text-complement);
+	padding-top:100px;
+}

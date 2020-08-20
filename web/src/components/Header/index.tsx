@@ -6,6 +6,8 @@ import goBackIcon from '../../assets/icons/goback-light.png';
 import imgLogo from '../../assets/images/logo.png';
 import imgAvatarUpload from '../../assets/icons/avatar-upload.png';
 
+import { Link } from 'react-router-dom';
+
 import './styles.css';
 interface Props {
 	user?: string;
@@ -14,16 +16,25 @@ interface Props {
 	deliveryman_amount?: number;
 }
 
-const Header: React.FC<Props> = ({ user, children, profile, list, deliveryman_amount }) => {
+const Header: React.FC<Props> = ({
+	user,
+	children,
+	profile,
+	list,
+	deliveryman_amount,
+}) => {
 	return (
 		<>
 			<header id="header" className={children ? 'header' : ''}>
 				<div className="left-side">
-					<img
-						src={children ? goBackIcon : imgAvatar}
-						className={children ? 'goBack' : ''}
-						alt={children ? 'Go Back' : 'User'}
-					/>
+					{children ? (
+						<Link to="/">
+							<img src={goBackIcon} className="goBack" alt="Go Back" />
+						</Link>
+					) : (
+						<img src={imgAvatar} alt="User" />
+					)}
+
 					{user && <span>{user}</span>}
 				</div>
 				<div className="children">{children}</div>
@@ -56,7 +67,9 @@ const Header: React.FC<Props> = ({ user, children, profile, list, deliveryman_am
 						<div className="container-title">
 							<h1>Estes são os entregadores disponíveis</h1>
 						</div>
-						<div className="container-info">Nós temos {deliveryman_amount} entregadores.</div>
+						<div className="container-info">
+							Nós temos {deliveryman_amount} entregadores.
+						</div>
 					</div>
 				</div>
 			)}

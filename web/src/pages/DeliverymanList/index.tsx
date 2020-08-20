@@ -10,6 +10,7 @@ import './styles.css';
 const DeliverymanList: React.FC = () => {
 	const [uf, setUf] = useState('');
 	const [city, setCity] = useState('');
+	const [show, setShow] = useState(false);
 
 	return (
 		<div id="page-list">
@@ -33,9 +34,16 @@ const DeliverymanList: React.FC = () => {
 						</div>
 					</div>
 				</div>
-
-				<DeliverymanItem />
-				<DeliverymanItem />
+				{show ? (
+					<>
+						<DeliverymanItem />
+						<DeliverymanItem />
+					</>
+				) : (
+					<div className="has-nothing">
+						Nenhum entregador encontrado com a sua pesquisa.
+					</div>
+				)}
 			</div>
 		</div>
 	);
