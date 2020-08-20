@@ -10,9 +10,11 @@ import './styles.css';
 interface Props {
 	user?: string;
 	profile?: boolean;
+	list?: boolean;
+	deliveryman_amount?: number;
 }
 
-const Header: React.FC<Props> = ({ user, children, profile }) => {
+const Header: React.FC<Props> = ({ user, children, profile, list, deliveryman_amount }) => {
 	return (
 		<>
 			<header id="header" className={children ? 'header' : ''}>
@@ -48,13 +50,13 @@ const Header: React.FC<Props> = ({ user, children, profile }) => {
 					</div>
 				</div>
 			)}
-			{children && !profile && (
+			{children && list && (
 				<div id="header-content">
 					<div className="container-content">
 						<div className="container-title">
 							<h1>Estes são os entregadores disponíveis</h1>
 						</div>
-						<div className="container-info">Nós temos 32 entregadores.</div>
+						<div className="container-info">Nós temos {deliveryman_amount} entregadores.</div>
 					</div>
 				</div>
 			)}

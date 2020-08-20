@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 const DeliverymanList: React.FC = () => {
 	return (
         <div id="page-list">
-            <Header>Buscar entregador</Header>
+            <Header list deliveryman_amount={2}>Buscar entregador</Header>
         </div>
     )
 };
