@@ -99,6 +99,7 @@
 #header-content .container-content {
 	display: flex;
 	justify-content: center;
+	margin-bottom:70px;
 }
 
 #header-content .container-content .container-title {
@@ -111,7 +112,7 @@
 	font-weight: bold;
 	font-size: 36px;
 	line-height: 42px;
-	padding: 100px 0;
+	padding: 60px 0;
 	color: var(--color-title-in-primary);
 }
 
