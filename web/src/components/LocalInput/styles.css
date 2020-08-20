@@ -1,0 +1,21 @@
+#uf,
+#city {
+	border-radius: 8px 8px 0px 0px;
+	border: none;
+	background: var(--color-input-background);
+	color: var(--color-text-base);
+	outline: none;
+}
+
+#uf {
+	padding: 15px 20px;
+}
+
+#city {
+	padding: 15px 30px;
+}
+
+option{
+	padding:0;
+	margin:0;
+}

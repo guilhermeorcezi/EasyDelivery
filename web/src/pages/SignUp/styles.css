@@ -94,7 +94,7 @@
 }
 
 #page-user-sign-up .form-side form button {
-	width: 352px;
+	width: 100%;
 	height: 56px;
 	background: var(--color-secundary);
 	border-radius: 8px;

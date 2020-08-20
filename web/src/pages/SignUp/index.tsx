@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
+import { Link } from 'react-router-dom';
 import goBackIcon from '../../assets/icons/goback-blue.png';
 
 import Input from '../../components/Input';
 import PasswordInput from '../../components/PasswordInput';
 import Dropzone from '../../components/Dropzone';
-import { Link } from 'react-router-dom';
+import LocalInput from '../../components/LocalInput';
 
 import './styles.css';
 
@@ -18,11 +19,13 @@ const SignUp: React.FC<Props> = ({ is_motoboy }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [whatsapp, setWhatsapp] = useState('');
-	const [uf, setUf] = useState('');
-	const [city, setCity] = useState('');
+	const [SelectedUF, setSelectedUF] = useState('');
+	const [selectedCity, setSelectedCity] = useState('');
 	const [selectedFile, setSelectedFile] = useState<File>();
 
-	function handleSignUp() {}
+	function handleSignUp() {
+		console.log(selectedCity);
+	}
 
 	return (
 		<main id="page-user-sign-up">
@@ -77,21 +80,11 @@ const SignUp: React.FC<Props> = ({ is_motoboy }) => {
 					</div>
 
 					<div className="input-group">
-						<Input
-							type="text"
-							placeholder="Estado"
-							name="uf"
-							label="Estado"
-							value={uf}
-							onChange={(e) => setUf(e.target.value)}
-						/>
-						<Input
-							type="text"
-							placeholder="Cidade"
-							name="city"
-							label="city"
-							value={city}
-							onChange={(e) => setCity(e.target.value)}
+						<LocalInput
+							selectedUf={SelectedUF}
+							setSelectedUf={setSelectedUF}
+							selectedCity={selectedCity}
+							setSelectedCity={setSelectedCity}
 						/>
 					</div>
 
