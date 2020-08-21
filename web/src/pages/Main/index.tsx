@@ -33,7 +33,7 @@ const Main: React.FC = () => {
 					<span>O que deseja fazer?</span>
 				</div>
 				<div className="buttons-container">
-					<Link to="/sign-up" className="sign-up">
+					<Link to="/list" className="sign-up">
 						<FaSearch className="button-icon" size={24} />
 						Buscar
 					</Link>

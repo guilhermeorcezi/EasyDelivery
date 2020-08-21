@@ -4,13 +4,17 @@ import UfInput from '../../components/UfInput';
 import CityInput from '../../components/CityInput';
 import Header from '../../components/Header';
 import DeliverymanItem from '../../components/DeliverymanItem';
+import Textarea from '../../components/Textarea';
 
 import './styles.css';
 
 const DeliverymanList: React.FC = () => {
 	const [uf, setUf] = useState('');
 	const [city, setCity] = useState('');
-	const [show, setShow] = useState(false);
+	const [description, setDescription] = useState('');
+	const [service, setService] = useState('');
+	const [show, setShow] = useState(true);
+	const [open, setOpen] = useState(true);
 
 	return (
 		<div id="page-list">
@@ -45,6 +49,59 @@ const DeliverymanList: React.FC = () => {
 					</div>
 				)}
 			</div>
+
+			{open && (
+				<div className="contact-container">
+					<div className="contact-form">
+						<form>
+							<h2>Quase lá!</h2>
+							<div className="input-group">
+								<div className="input-block">
+									<legend>Descreva o serviço (Máximo 300 caracteres)</legend>
+									<Textarea
+										placeholder="Descrição"
+										name="description"
+										label="Descrição"
+										value={description}
+										onChange={(e) => setDescription(e.target.value)}
+									/>
+								</div>
+								<div className="input-block">
+									<legend>Tipo de serviço</legend>
+									<select
+										placeholder="Descrição"
+										id="service"
+										name="service"
+										value={service}
+									>
+										<option key="a" value="a">
+											A
+										</option>
+										<option key="a" value="a">
+											B
+										</option>
+										<option key="a" value="a">
+											C
+										</option>
+										<option key="a" value="a">
+											D
+										</option>
+										<option key="a" value="a">
+											Outros
+										</option>
+									</select>
+								</div>
+							</div>
+
+							<div className="action-button">
+								<a href="#" target="_blank">
+									Confirmar
+								</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
