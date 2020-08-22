@@ -16,7 +16,7 @@ const DeliverymanList: React.FC = () => {
 	const [description, setDescription] = useState('');
 	const [service, setService] = useState('');
 	const [show, setShow] = useState(true);
-	const [toggle, setToggle] = useState(false);
+	const [toggle, setToggle] = useState(true);
 
 	function handleToggle() {
 		setToggle(toggle ? false : true);
