@@ -21,7 +21,9 @@ const Main: React.FC = () => {
 					<h2>Encontre entregadores para os mais diversos serviços.</h2>
 				</div>
 
-				<img src={imgBanner} alt="Easy Delivery" className="banner-image" />
+				<div className="banner-content">
+					<img src={imgBanner} alt="Easy Delivery" className="banner-image" />
+				</div>
 			</div>
 
 			<div className="content">
