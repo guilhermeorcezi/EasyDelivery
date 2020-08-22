@@ -6,7 +6,11 @@
 		justify-content: center;
 		flex-direction: column;
 	}
-}
+
+	#page-user-sign-up .banner-side{
+		width:100% !important;
+	}
+}	
 
 #page-user-sign-up {
 	height: 100vh;

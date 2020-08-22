@@ -6,6 +6,10 @@
 		justify-content: center;
 		flex-direction: column;
 	}
+
+	#page-forgot-password .banner-side{
+		width:100% !important;
+	}
 }
 
 #page-forgot-password {
