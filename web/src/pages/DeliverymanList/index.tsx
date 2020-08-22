@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { FaTimes } from 'react-icons/fa';
+
 import UfInput from '../../components/UfInput';
 import CityInput from '../../components/CityInput';
 import Header from '../../components/Header';
@@ -14,7 +16,11 @@ const DeliverymanList: React.FC = () => {
 	const [description, setDescription] = useState('');
 	const [service, setService] = useState('');
 	const [show, setShow] = useState(true);
-	const [open, setOpen] = useState(true);
+	const [toggle, setToggle] = useState(false);
+
+	function handleToggle() {
+		setToggle(toggle ? false : true);
+	}
 
 	return (
 		<div id="page-list">
@@ -50,9 +56,10 @@ const DeliverymanList: React.FC = () => {
 				)}
 			</div>
 
-			{open && (
+			{toggle && (
 				<div className="contact-container">
 					<div className="contact-form">
+						<FaTimes onClick={handleToggle} />
 						<form>
 							<h2>Quase lá!</h2>
 							<div className="input-group">
@@ -94,7 +101,10 @@ const DeliverymanList: React.FC = () => {
 							</div>
 
 							<div className="action-button">
-								<a href="#" target="_blank">
+								<a
+									href="https://api.whatsapp.com/send?phone=phone&text=text"
+									target="_blank"
+								>
 									Confirmar
 								</a>
 							</div>
