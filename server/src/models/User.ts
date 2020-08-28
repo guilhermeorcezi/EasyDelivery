@@ -27,7 +27,7 @@ class User {
   avatar: string;
 
   @Column()
-  is_motoboy: boolean;
+  is_deliveryman: boolean;
 
   @Column()
   uf: string;

@@ -16,7 +16,7 @@ usersRouter.post('/', upload.single('avatar'), async (request, response) => {
     email,
     password,
     whatsapp,
-    is_motoboy,
+    is_deliveryman,
     uf,
     city,
   } = request.body;
@@ -29,7 +29,7 @@ usersRouter.post('/', upload.single('avatar'), async (request, response) => {
     password,
     whatsapp,
     avatarFileName: request.file.filename,
-    is_motoboy,
+    is_deliveryman,
     uf,
     city,
   });

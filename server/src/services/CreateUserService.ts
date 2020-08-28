@@ -9,7 +9,7 @@ interface Request {
   password: string;
   whatsapp: string;
   avatarFileName: string;
-  is_motoboy: boolean;
+  is_deliveryman: boolean;
   uf: string;
   city: string;
 }
@@ -21,7 +21,7 @@ class CreateUserService {
     password,
     whatsapp,
     avatarFileName,
-    is_motoboy,
+    is_deliveryman,
     uf,
     city,
   }: Request): Promise<User> {
@@ -45,7 +45,7 @@ class CreateUserService {
       password: hashedPassword,
       whatsapp,
       avatar: avatarFileName,
-      is_motoboy,
+      is_deliveryman,
       uf,
       city,
     });
