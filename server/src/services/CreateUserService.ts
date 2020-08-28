@@ -31,7 +31,9 @@ class CreateUserService {
 
     if (checkUserExists) throw Error('Email adress already used');
 
-    const checkWhatsappExists = await usersRepository.findOne({ where: { whatsapp } });
+    const checkWhatsappExists = await usersRepository.findOne({
+      where: { whatsapp },
+    });
 
     if (checkWhatsappExists) throw Error('Whatsapp number already used');
 
