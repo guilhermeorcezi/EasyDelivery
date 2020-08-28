@@ -1,11 +1,11 @@
-import express from 'express';
+import { Router } from 'express';
 
 import usersRouter from './users.routes';
 import sessionsRouter from './sessions.routes';
 
-const routes = express.Router();
+const routes = Router();
 
-routes.post('/user', usersRouter);
-routes.post('/sessions', sessionsRouter);
+routes.use('/users', usersRouter);
+routes.use('/sessions', sessionsRouter);
 
 export default routes;

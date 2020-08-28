@@ -11,7 +11,6 @@ interface Request {
   email: string;
   password: string;
 }
-
 interface Response {
   user: User;
   token: string;

@@ -43,7 +43,7 @@ export default class createUsers1598630459144 implements MigrationInterface {
           },
           {
             name: 'city',
-            type: 'varchar(2)',
+            type: 'varchar',
           },
           {
             name: 'created_at',
