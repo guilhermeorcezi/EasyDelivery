@@ -26,7 +26,7 @@ class User {
   @Column()
   avatar: string;
 
-  @Column()
+  @Column('boolean')
   is_deliveryman: boolean;
 
   @Column()

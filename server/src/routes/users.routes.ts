@@ -42,7 +42,7 @@ usersRouter.post('/', upload.single('avatar'), async (request, response) => {
 usersRouter.patch(
   '/avatar',
   ensureAuthenticated,
-  upload.single('avatar'),
+  upload.single('avatar '),
   async (request, response) => {
     const updateUserAvatar = new UpdateUserAvatarService();
 

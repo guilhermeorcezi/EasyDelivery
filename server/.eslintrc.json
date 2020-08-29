@@ -23,6 +23,7 @@
         "prettier"
     ],
     "rules": {
+      "no-param-reassign": [2, { "props": false }],
       "no-console": "off",
       "camelcase": "off",
       "prettier/prettier": "error",
