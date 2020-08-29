@@ -4,9 +4,26 @@ import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 import SearchDeliverymanService from '../services/SearchDeliverymanService';
 
+import FavoriteDeliverymanService from '../services/FavoriteDeliverymanService';
+
 const deliverymanRouter = Router();
 
-deliverymanRouter.get('/', async (request, response) => {
+deliverymanRouter.post(
+  '/favorite/:id',
+  ensureAuthenticated,
+  async (request, response) => {
+    const favoriteDeliveryman = new FavoriteDeliverymanService();
+
+    const logged_user_id = request.user.id;
+    const favorited_user_id = request.params.id;
+
+    await favoriteDeliveryman.execute({ logged_user_id, favorited_user_id });
+
+    return response.status(204).send();
+  },
+);
+
+deliverymanRouter.get('/', ensureAuthenticated, async (request, response) => {
   const filters = request.query;
 
   const uf = filters.uf as string;
