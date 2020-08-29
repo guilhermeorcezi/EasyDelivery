@@ -7,18 +7,18 @@ interface Request {
   favorited_user_id: string;
 }
 
-class FavoriteDeliverymanService {
+class DeleteFavoriteDeliverymanService {
   public async execute({
     logged_user_id,
     favorited_user_id,
   }: Request): Promise<void> {
     const userRepository = getRepository(Favorite);
 
-    await userRepository.create({
+    await userRepository.delete({
       logged_user_id,
       favorited_user_id,
     });
   }
 }
 
-export default FavoriteDeliverymanService;
+export default DeleteFavoriteDeliverymanService;

@@ -5,6 +5,7 @@ import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import SearchDeliverymanService from '../services/SearchDeliverymanService';
 
 import FavoriteDeliverymanService from '../services/FavoriteDeliverymanService';
+import DeleteFavoriteDeliverymanService from '../services/DeleteFavoriteDeliverymanService';
 
 const deliverymanRouter = Router();
 
@@ -37,5 +38,23 @@ deliverymanRouter.get('/', ensureAuthenticated, async (request, response) => {
 
   return response.json(deliveryman);
 });
+
+deliverymanRouter.delete(
+  '/favorite/:id',
+  ensureAuthenticated,
+  async (request, response) => {
+    const deleteFavoriteDeliveryman = new DeleteFavoriteDeliverymanService();
+
+    const logged_user_id = request.user.id;
+    const favorited_user_id = request.params.id;
+
+    await deleteFavoriteDeliveryman.execute({
+      logged_user_id,
+      favorited_user_id,
+    });
+
+    return response.status(204).send();
+  },
+);
 
 export default deliverymanRouter;
