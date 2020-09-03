@@ -32,6 +32,10 @@ export default class createDeliveries1598635225988
             type: 'uuid',
           },
           {
+            name: 'deliveryman_id',
+            type: 'uuid',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
@@ -60,6 +64,18 @@ export default class createDeliveries1598635225988
     await queryRunner.createForeignKey(
       'deliveries',
       new TableForeignKey({
+        name: 'DeliverymanId',
+        columnNames: ['deliveryman_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'users',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      }),
+    );
+
+    await queryRunner.createForeignKey(
+      'deliveries',
+      new TableForeignKey({
         name: 'DeliveryService',
         columnNames: ['service_id'],
         referencedColumnNames: ['id'],
@@ -72,6 +88,7 @@ export default class createDeliveries1598635225988
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropForeignKey('deliveries', 'DeliveryUser');
+    await queryRunner.dropForeignKey('deliveries', 'DeliverymanId');
     await queryRunner.dropForeignKey('deliveries', 'DeliveryService');
 
     await queryRunner.dropTable('deliveries');

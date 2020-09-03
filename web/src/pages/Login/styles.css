@@ -152,7 +152,7 @@
 }
 
 #page-login .footer .register-block span:last-child {
-	color: #6a6180;
+	color: var(--color-text-base);
 	font-family: Poppins;
 	font-weight: bold;
 	font-size: 16px;

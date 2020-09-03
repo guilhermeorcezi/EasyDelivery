@@ -57,9 +57,14 @@
 	line-height: 30px;
 }
 
+#header .right-side .logout {
+  height:50px;
+  width:50px;
+}
+
 #header .right-side img {
 	padding: 12px;
-	background: var(--color-primary-dark);
+	background: var(--color-primary-light);
 	border-radius: 8px;
 }
 

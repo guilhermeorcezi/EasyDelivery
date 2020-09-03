@@ -11,7 +11,7 @@ import {
 import User from './User';
 import Service from './Service';
 
-@Entity('Deliveries')
+@Entity('deliveries')
 class Delivery {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -25,6 +25,13 @@ class Delivery {
   @ManyToOne(() => User)
   @JoinColumn({ name: 'user_id' })
   UserId: User;
+
+  @Column()
+  deliveryman_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'deliveryman_id' })
+  DeliverymanId: User;
 
   @Column()
   service_id: string;

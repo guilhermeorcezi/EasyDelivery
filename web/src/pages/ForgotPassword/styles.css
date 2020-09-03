@@ -61,7 +61,7 @@
 	font-family: Poppins;
 	font-weight: normal;
 	font-size: 16px;
-	color: #6a6180;
+	color: var(--color-text-base);
 	margin-bottom: 30px;
 }
 
