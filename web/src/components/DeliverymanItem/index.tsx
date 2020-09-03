@@ -1,29 +1,29 @@
 import React from 'react';
 
-import './styles.css';
+import { Container, Profile, Contact } from './styles';
 
 import imgUser from '../../assets/images/user-avatar.png';
 import iconWhatsapp from '../../assets/icons/whatsapp.png';
 
 const DeliverymanItem: React.FC = () => {
-	return (
-		<div className="list-item">
-			<div className="item-profile">
-				<img src={imgUser} alt="User" className="image-avatar" />
-				<div className="item-about">
-					<h3>Guilherme Orcezi</h3>
-					<span>Potim/SP</span>
-				</div>
-			</div>
+  return (
+    <Container>
+      <Profile>
+        <img src={imgUser} alt="User" />
+        <div>
+          <h3>Guilherme Orcezi</h3>
+          <span>Potim/SP</span>
+        </div>
+      </Profile>
 
-			<div className="item-action">
-				<a href="#" target="_blank">
-					<img src={iconWhatsapp} alt="Whatsapp" />
-					Entrar em contato
-				</a>
-			</div>
-		</div>
-	);
+      <Contact>
+        <a href="a" target="_blank">
+          <img src={iconWhatsapp} alt="Whatsapp" />
+          Entrar em contato
+        </a>
+      </Contact>
+    </Container>
+  );
 };
 
 export default DeliverymanItem;
