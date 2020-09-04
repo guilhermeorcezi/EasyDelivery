@@ -8,7 +8,13 @@ import Header from '../../components/Header';
 import DeliverymanItem from '../../components/DeliverymanItem';
 import Textarea from '../../components/Textarea';
 
-import './styles.css';
+import {
+  Container,
+  Content,
+  SearchGroup,
+  InputBlock,
+  HasNothing,
+} from './styles';
 
 const DeliverymanList: React.FC = () => {
   const [uf, setUf] = useState('');
@@ -23,40 +29,40 @@ const DeliverymanList: React.FC = () => {
   }
 
   return (
-    <div id="page-list">
+    <Container id="page-list">
       <Header list deliveryman_amount={2}>
         Buscar entregador
       </Header>
-      <div className="container">
-        <div className="search-group">
+      <Content className="container">
+        <SearchGroup className="search-group">
           <div className="input-group">
-            <div className="input-block">
+            <InputBlock className="input-block">
               <legend>Seu estado</legend>
               <UfInput selectedUf={uf} setSelectedUf={setUf} />
-            </div>
-            <div className="input-block">
+            </InputBlock>
+            <InputBlock className="input-block">
               <legend>Sua cidade</legend>
               <CityInput
                 selectedUF={uf}
                 selectedCity={city}
                 setSelectedCity={setCity}
               />
-            </div>
+            </InputBlock>
           </div>
-        </div>
+        </SearchGroup>
         {show ? (
           <>
             <DeliverymanItem />
             <DeliverymanItem />
           </>
         ) : (
-          <div className="has-nothing">
-            Nenhum entregador encontrado com a sua pesquisa.
-          </div>
-        )}
-      </div>
+            <HasNothing>
+              Nenhum entregador encontrado com a sua pesquisa.
+            </HasNothing>
+          )}
+      </Content>
 
-      {toggle && (
+      {/* toggle && (
         <div className="contact-container">
           <div className="contact-form">
             <FaTimes onClick={handleToggle} />
@@ -111,8 +117,8 @@ const DeliverymanList: React.FC = () => {
             </form>
           </div>
         </div>
-      )}
-    </div>
+      ) */}
+    </Container>
   );
 };
 

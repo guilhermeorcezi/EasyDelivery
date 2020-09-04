@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import imgSignUpSucess from '../../assets/images/signup-success.png';
 
-import './styles.css';
+import { Container, Content } from './styles';
 
 interface Props {
   title: string;
@@ -13,9 +13,9 @@ interface Props {
 
 const Success: React.FC<Props> = ({ title, message, link }) => {
   return (
-    <div id="page-signup-success">
-      <div className="container">
-        <div className="content">
+    <Container id="page-signup-success">
+      <Content className="container">
+        <div className="content-body">
           <img src={imgSignUpSucess} alt="Sign Up Success" />
           <h1>{title}</h1>
           <p>{message}</p>
@@ -23,8 +23,8 @@ const Success: React.FC<Props> = ({ title, message, link }) => {
         <div className="footer">
           <Link to="/">Voltar</Link>
         </div>
-      </div>
-    </div>
+      </Content>
+    </Container>
   );
 };
 
