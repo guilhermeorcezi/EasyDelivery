@@ -12,12 +12,14 @@ class FavoriteDeliverymanService {
     logged_user_id,
     favorited_user_id,
   }: Request): Promise<void> {
-    const userRepository = getRepository(Favorite);
+    const favoriteRepository = getRepository(Favorite);
 
-    await userRepository.create({
+    const favorite = await favoriteRepository.create({
       logged_user_id,
       favorited_user_id,
     });
+
+    await favoriteRepository.save(favorite);
   }
 }
 

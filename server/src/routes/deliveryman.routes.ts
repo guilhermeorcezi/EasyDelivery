@@ -3,7 +3,6 @@ import { Router } from 'express';
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 import SearchDeliverymanService from '../services/SearchDeliverymanService';
-
 import FavoriteDeliverymanService from '../services/FavoriteDeliverymanService';
 import DeleteFavoriteDeliverymanService from '../services/DeleteFavoriteDeliverymanService';
 

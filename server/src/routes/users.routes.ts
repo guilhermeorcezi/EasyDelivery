@@ -4,6 +4,7 @@ import uploadConfig from '../config/upload';
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
+import ShowFavoritedDeliverymanService from '../services/ShowFavoritedDeliverymanService';
 import CreateUserService from '../services/CreateUserService';
 import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 
@@ -52,6 +53,22 @@ usersRouter.patch(
     });
 
     return response.json(user);
+  },
+);
+
+usersRouter.get(
+  '/favorites',
+  ensureAuthenticated,
+  async (request, response) => {
+    const showFavoritedDeliveryman = new ShowFavoritedDeliverymanService();
+
+    const logged_user_id = request.user.id;
+
+    const favoritedDeliveryman = await showFavoritedDeliveryman.execute(
+      logged_user_id,
+    );
+
+    return response.json(favoritedDeliveryman);
   },
 );
 

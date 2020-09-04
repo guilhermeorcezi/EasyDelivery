@@ -25,7 +25,7 @@ class Favorite {
   @Column()
   favorited_user_id: string;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, user => user.favorite, { eager: true })
   @JoinColumn({ name: 'favorited_user_id' })
   FavoritedUser: User;
 
