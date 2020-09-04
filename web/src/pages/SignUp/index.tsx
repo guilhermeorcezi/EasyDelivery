@@ -8,7 +8,7 @@ import PasswordInput from '../../components/PasswordInput';
 import Dropzone from '../../components/Dropzone';
 import UfInput from '../../components/UfInput';
 
-import './styles.css';
+import { Container, FormSide, Form } from './styles';
 import CityInput from '../../components/CityInput';
 import BannerSide from '../../components/BannerSide';
 
@@ -26,13 +26,13 @@ const SignUp: React.FC = () => {
   }
 
   return (
-    <main id="page-user-sign-up">
-      <div className="form-side">
+    <Container>
+      <FormSide>
         <Link to="/">
           <img src={goBackIcon} alt="Back" />
         </Link>
 
-        <form onSubmit={handleSignUp}>
+        <Form onSubmit={handleSignUp}>
           <h1>Cadastre-se</h1>
           <span className="describe">
             Preencha os dados abaixo para começar.
@@ -88,11 +88,11 @@ const SignUp: React.FC = () => {
           </div>
 
           <button type="submit">Concluir cadastro</button>
-        </form>
-      </div>
+        </Form>
+      </FormSide>
 
       <BannerSide />
-    </main>
+    </Container>
   );
 };
 

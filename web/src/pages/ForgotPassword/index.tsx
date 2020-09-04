@@ -1,50 +1,51 @@
 import React, { useState } from 'react';
 
+import { Link } from 'react-router-dom';
 import goBackIcon from '../../assets/icons/goback-blue.png';
 
 import Input from '../../components/Input';
-import { Link } from 'react-router-dom';
+import BannerSide from '../../components/BannerSide';
 
-import './styles.css';
+import { Container, FormSide, Form } from './styles';
 
 const ForgotPassword: React.FC = () => {
-	const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');
 
-	function handleSignUp() {}
+  function handleSignUp() { }
 
-	return (
-		<main id="page-forgot-password">
-			<div className="form-side">
-				<Link to="/">
-					<img src={goBackIcon} alt="Back" />
-				</Link>
+  return (
+    <Container>
+      <FormSide>
+        <Link to="/">
+          <img src={goBackIcon} alt="Back" />
+        </Link>
 
-				<form onSubmit={handleSignUp}>
-					<h1>Eita, esqueceu sua senha?</h1>
-					<span className="describe">
-						Não esquenta, vamos dar um jeito nisso.
-					</span>
+        <Form onSubmit={handleSignUp}>
+          <h1>Eita, esqueceu sua senha?</h1>
+          <span className="describe">
+            Não esquenta, vamos dar um jeito nisso.
+          </span>
 
-					<div className="input-group">
-						<div className="input-block">
-							<Input
-								type="text"
-								placeholder="E-mail"
-								name="email"
-								label="E-mail"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-						</div>
-					</div>
+          <div className="input-group">
+            <div className="input-block">
+              <Input
+                type="text"
+                placeholder="E-mail"
+                name="email"
+                label="E-mail"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
 
-					<button type="submit">Enviar</button>
-				</form>
-			</div>
+          <button type="submit">Enviar</button>
+        </Form>
+      </FormSide>
 
-			<div className="banner-side">EasyDelivery</div>
-		</main>
-	);
+      <BannerSide />
+    </Container>
+  );
 };
 
 export default ForgotPassword;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
-import Login from './pages/Login';
+import SignIn from './pages/SignIn';
 import Page404 from './pages/Page404';
 import Success from './components/SuccessPage';
 import SignUp from './pages/SignUp';
@@ -16,7 +16,7 @@ function Routes() {
 		<BrowserRouter>
 			<Switch>
 				<Route path="/" exact component={Landing} />
-				<Route path="/sign" component={Login} />
+				<Route path="/signin" component={SignIn} />
 				<Route path="/success" component={Success} />
 				<Route path="/signup" component={SignUp} />
 				<Route path="/forgot-password" component={ForgotPassword} />

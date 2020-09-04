@@ -4,17 +4,18 @@ import { FaSignInAlt, FaUserAlt } from 'react-icons/fa';
 
 import { Link } from 'react-router-dom';
 
-import './styles.css';
+import { Container, Content, ButtonsContent, BannerContent } from './styles';
+
 import imgBanner from '../../assets/images/easydelibery-banner.svg';
 import logoImg from '../../assets/images/logo.png';
 
 const Landing: React.FC = () => (
-  <div id="page-landing">
-    <div className="container">
+  <Container>
+    <Content>
       <img src={logoImg} alt="Easy Delivery" className="logo" />
       <h2>Plataforma para encontrar entregadores perto de você.</h2>
 
-      <div className="buttons-container">
+      <ButtonsContent>
         <Link to="/sign-up" className="sign-up">
           <FaUserAlt className="button-icon" size={24} />
           Cadastrar
@@ -24,13 +25,13 @@ const Landing: React.FC = () => (
           <FaSignInAlt className="button-icon" size={24} />
           Entrar
         </Link>
-      </div>
-    </div>
+      </ButtonsContent>
+    </Content>
 
-    <div className="banner-content">
+    <BannerContent>
       <img src={imgBanner} alt="Easy Delivery" className="banner-image" />
-    </div>
-  </div>
+    </BannerContent>
+  </Container>
 );
 
 export default Landing;
