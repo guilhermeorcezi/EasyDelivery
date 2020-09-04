@@ -14,7 +14,9 @@ import {
   SearchGroup,
   InputBlock,
   HasNothing,
+  ContactContainer,
 } from './styles';
+import Input from '../../components/Input';
 
 const DeliverymanList: React.FC = () => {
   const [uf, setUf] = useState('');
@@ -62,8 +64,8 @@ const DeliverymanList: React.FC = () => {
           )}
       </Content>
 
-      {/* toggle && (
-        <div className="contact-container">
+      {toggle && (
+        <ContactContainer className="contact-container">
           <div className="contact-form">
             <FaTimes onClick={handleToggle} />
             <form>
@@ -110,14 +112,15 @@ const DeliverymanList: React.FC = () => {
                 <a
                   href="https://api.whatsapp.com/send?phone=phone&text=text"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Confirmar
                 </a>
               </div>
             </form>
           </div>
-        </div>
-      ) */}
+        </ContactContainer>
+      )}
     </Container>
   );
 };
