@@ -53,7 +53,7 @@ export const Form = styled(Unform)`
       position: absolute;
       cursor: pointer;
       top: 5;
-      right: 33px;
+      right: 42px;
     }
   }
 

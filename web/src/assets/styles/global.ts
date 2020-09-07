@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
 	--color-box-footer: #fafafc;
 	--color-background-primary:#E5E5E5;
 	--color-select-selected:#EBEBF5;
+  --color-error:#c53030;
 
 	font-size: 60%;
 }
@@ -50,6 +51,14 @@ body{
 body,input,button,textarea{
 	font: 500 1.6rem Poppins;
 	outline:0;
+}
+
+.input-initial{
+  border-radius: 8px 8px 0px 0px;
+}
+
+.input-final{
+  border-radius: 0px 0px 8px 8px;
 }
 
 @media (min-width: 700px) {

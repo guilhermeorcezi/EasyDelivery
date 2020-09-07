@@ -9,16 +9,18 @@ import { useField } from '@unform/core';
 
 import { FiAlertCircle } from 'react-icons/fi';
 
-import { Container, LabelText, InputStyled } from './styled';
+import { Container, LabelText, InputStyled, Error } from './styled';
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label: string;
+  className?: string;
 }
 
-const Input: React.FC<IProps> = ({ label, name, ...rest }) => {
+const Input: React.FC<IProps> = ({ label, name, className, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
 
   const { fieldName, defaultValue, error, registerField } = useField(name);
 
@@ -36,11 +38,17 @@ const Input: React.FC<IProps> = ({ label, name, ...rest }) => {
 
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
+    setIsFilled(!!inputRef.current?.value);
   }, []);
 
   return (
     <>
-      <Container>
+      <Container
+        hasError={!!error}
+        isFilled={isFilled}
+        isFocused={isFocused}
+        className={className}
+      >
         <InputStyled
           name={name}
           onFocus={handleInputFocus}
@@ -52,6 +60,11 @@ const Input: React.FC<IProps> = ({ label, name, ...rest }) => {
           {...rest}
         />
         <LabelText>{label}</LabelText>
+        {error && (
+          <Error title={error}>
+            <FiAlertCircle color="#c53030" size={20} />
+          </Error>
+        )}
       </Container>
     </>
   );

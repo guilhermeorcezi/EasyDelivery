@@ -9,6 +9,7 @@ import Input from '../../components/Input';
 import BannerSide from '../../components/BannerSide';
 
 import { Container, FormSide, Form, Actions, Footer } from './styles';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 interface SignInFormData {
   email: string;
@@ -38,7 +39,10 @@ const Login: React.FC = () => {
 
       // history.push('/dashboard');
     } catch (err) {
-      console.log(err);
+      if (err instanceof Yup.ValidationError) {
+        const errors = getValidationErrors(err);
+        formRef.current?.setErrors(errors);
+      }
     }
   }, []);
 
@@ -55,10 +59,11 @@ const Login: React.FC = () => {
               placeholder="E-mail"
               name="email"
               label="E-mail"
+              className="input-initial"
             />
           </div>
           <div className="input-icon">
-            <PasswordInput />
+            <PasswordInput className="input-final" />
           </div>
 
           <Actions>

@@ -13,6 +13,6 @@ export const Container = styled.div`
   }
 
   @media (max-width: 1100px) {
-    width: 100vw;
+    display: none;
   }
 `;

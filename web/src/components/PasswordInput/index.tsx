@@ -8,8 +8,11 @@ import React, {
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 import Input from '../Input';
 
-const PasswordInput: React.FC = () => {
-  const [password, setPassword] = useState('');
+interface Props {
+  className?: string;
+}
+
+const PasswordInput: React.FC<Props> = ({ className }) => {
   const [inputType, setInputType] = useState('password');
 
   function handleChangeInputType(type: string) {
@@ -23,8 +26,7 @@ const PasswordInput: React.FC = () => {
         placeholder="Senha"
         name="password"
         label="Senha"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
+        className={className}
       />
       {inputType === 'password' ? (
         <RiEyeLine
@@ -34,13 +36,13 @@ const PasswordInput: React.FC = () => {
           onClick={e => handleChangeInputType('text')}
         />
       ) : (
-          <RiEyeOffLine
-            color="#8257E5"
-            size="24"
-            className="eye-icon"
-            onClick={e => handleChangeInputType('password')}
-          />
-        )}
+        <RiEyeOffLine
+          color="#8257E5"
+          size="24"
+          className="eye-icon"
+          onClick={e => handleChangeInputType('password')}
+        />
+      )}
     </>
   );
 };

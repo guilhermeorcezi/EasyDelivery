@@ -1,7 +1,12 @@
 import styled, { css } from 'styled-components';
 
-interface ContainerProps {}
+import Tooltip from '../Tooltip';
 
+interface ContainerProps {
+  hasError: boolean;
+  isFilled: boolean;
+  isFocused: boolean;
+}
 interface InputProps {
   hasValue: string | undefined;
   isFocused: boolean;
@@ -13,16 +18,35 @@ export const Container = styled.div<ContainerProps>`
   background: var(--color-box-footer);
   border: 1px solid var(--color-line-in-white);
   box-sizing: border-box;
-  border-radius: 8px 8px 0px 0px;
-  padding: 24px 0px 24px 24px;
+  padding: 24px 0 24px 24px;
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
   position: relative;
+  display: flex;
 
   &:focus {
     border-left: 2px solid var(--color-primary);
   }
+
+  ${props =>
+    props.hasError &&
+    css`
+      border-color: var(--color-error);
+    `}
+
+  ${props =>
+    props.isFocused &&
+    css`
+      color: var(--color-secundary);
+      border-color: var(--color-secundary);
+    `}
+
+  ${props =>
+    props.isFilled &&
+    css`
+      color: #ff9000;
+    `}
 `;
 
 export const InputStyled = styled.input<InputProps>`
@@ -31,6 +55,7 @@ export const InputStyled = styled.input<InputProps>`
   background: transparent;
   border: 0;
   color: '#666360';
+  padding-right: 74px;
 
   ${({ value }) => {
     return (
@@ -45,6 +70,7 @@ export const InputStyled = styled.input<InputProps>`
         }
         & {
           padding-top: 10px;
+          padding-bottom: 10px;
         }
       `
     );
@@ -62,6 +88,7 @@ export const InputStyled = styled.input<InputProps>`
       }
       & {
         padding-top: 10px;
+        padding-bottom: 10px;
       }
     `}
 `;
@@ -78,4 +105,20 @@ export const LabelText = styled.span`
   font-style: normal;
   font-weight: 300;
   transition: 0.1s ease-in-out;
+`;
+
+export const Error = styled(Tooltip)`
+  margin-right: 16px;
+  z-index: 3;
+
+  svg {
+    margin: 0;
+  }
+  span {
+    background: #c53030;
+    color: #fff;
+    &::before {
+      border-color: #c53030 transparent;
+    }
+  }
 `;
