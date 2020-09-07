@@ -14,6 +14,8 @@ import UfInput from '../../components/UfInput';
 import { Container, FormSide, Form } from './styles';
 import CityInput from '../../components/CityInput';
 import BannerSide from '../../components/BannerSide';
+import getValidationErrors from '../../utils/getValidationErrors';
+import phoneRegex from '../../utils/numberRegex';
 
 interface SignUpFormData {
   name: string;
@@ -27,10 +29,6 @@ const SignUp: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedFile, setSelectedFile] = useState<File>();
 
-  function handleSignUp() {
-    console.log(selectedCity);
-  }
-
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(async (data: SignUpFormData) => {
@@ -38,10 +36,18 @@ const SignUp: React.FC = () => {
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
+        name: Yup.string().required('Nome obrigatório'),
         email: Yup.string()
           .required('E-mail obrigatório')
           .email('Digite um email válido'),
-        password: Yup.string().required('Senha obrigatória'),
+        password: Yup.string().min(6, 'No mínimo 6 dígitos'),
+        whatsapp: Yup.string().matches(
+          phoneRegex,
+          'Precisa ser um número válido',
+        ),
+        uf: Yup.object().shape({
+          value: Yup.string().required('UF obrigatória'),
+        }),
       });
 
       await schema.validate(data, { abortEarly: false });
@@ -53,6 +59,10 @@ const SignUp: React.FC = () => {
 
       // history.push('/dashboard');
     } catch (err) {
+      if (err instanceof Yup.ValidationError) {
+        const errors = getValidationErrors(err);
+        formRef.current?.setErrors(errors);
+      }
       console.log(err);
     }
   }, []);
@@ -64,7 +74,7 @@ const SignUp: React.FC = () => {
           <img src={goBackIcon} alt="Back" />
         </Link>
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} ref={formRef}>
           <h1>Cadastre-se</h1>
           <span className="describe">
             Preencha os dados abaixo para começar.
@@ -72,34 +82,32 @@ const SignUp: React.FC = () => {
           <div className="avatar-block">
             <Dropzone onFileUploaded={setSelectedFile} />
           </div>
-
-          <div className="input-block">
-            <Input type="text" placeholder="Nome" name="name" label="Nome" />
-          </div>
           <div className="input-block">
             <Input
               type="text"
-              placeholder="E-mail"
-              name="email"
-              label="E-mail"
+              placeholder="Nome"
+              name="name"
+              label="Nome"
+              className="input-initial"
             />
           </div>
+          <Input type="text" placeholder="E-mail" name="email" label="E-mail" />
 
-          <div className="input-icon">
-            <PasswordInput />
-          </div>
+          <PasswordInput />
 
-          <div className="input-block">
-            <Input
-              type="text"
-              placeholder="Whatsapp"
-              name="whatsapp"
-              label="Whatsapp"
-            />
-          </div>
+          <Input
+            type="text"
+            placeholder="Ex: 12996158865"
+            name="whatsapp"
+            label="Whatsapp"
+          />
 
           <div className="input-group">
-            <UfInput selectedUf={SelectedUF} setSelectedUf={setSelectedUF} />
+            <UfInput
+              name="uf"
+              selectedUf={SelectedUF}
+              setSelectedUf={setSelectedUF}
+            />
 
             <CityInput
               selectedCity={selectedCity}

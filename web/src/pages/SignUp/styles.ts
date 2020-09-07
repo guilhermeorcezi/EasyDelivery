@@ -64,18 +64,6 @@ export const Form = styled(Unform)`
     position: relative;
   }
 
-  .input-icon .eye-icon {
-    position: absolute;
-    cursor: pointer;
-    top: 5;
-    right: 33px;
-  }
-
-  .input-block {
-    display: flex;
-    align-items: center;
-  }
-
   .input-group {
     display: flex;
 

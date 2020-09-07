@@ -62,10 +62,7 @@ const Login: React.FC = () => {
               className="input-initial"
             />
           </div>
-          <div className="input-icon">
-            <PasswordInput className="input-final" />
-          </div>
-
+          <PasswordInput className="input-final" />
           <Actions>
             <div className="input-block">
               <label htmlFor="remember_pwd">

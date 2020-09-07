@@ -44,19 +44,6 @@ export const Form = styled(Unform)`
     position: relative;
   }
 
-  .input-icon {
-    display: flex;
-    align-items: center;
-    position: relative;
-
-    .eye-icon {
-      position: absolute;
-      cursor: pointer;
-      top: 5;
-      right: 42px;
-    }
-  }
-
   button {
     width: 352px;
     height: 56px;

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { FaTimes } from 'react-icons/fa';
+import { FormHandles } from '@unform/core';
+import { Form } from '@unform/web';
 
 import UfInput from '../../components/UfInput';
 import CityInput from '../../components/CityInput';
@@ -25,6 +27,8 @@ const DeliverymanList: React.FC = () => {
   const [show, setShow] = useState(true);
   const [toggle, setToggle] = useState(true);
 
+  const formRef = useRef<FormHandles>(null);
+
   function handleToggle() {
     setToggle(!toggle);
   }
@@ -36,10 +40,10 @@ const DeliverymanList: React.FC = () => {
       </Header>
       <Content className="container">
         <SearchGroup className="search-group">
-          <div className="input-group">
+          <Form className="input-group" onSubmit={() => { }} ref={formRef}>
             <InputBlock className="input-block">
               <legend>Seu estado</legend>
-              <UfInput selectedUf={uf} setSelectedUf={setUf} />
+              <UfInput selectedUf={uf} name="uf" setSelectedUf={setUf} />
             </InputBlock>
             <InputBlock className="input-block">
               <legend>Sua cidade</legend>
@@ -49,7 +53,7 @@ const DeliverymanList: React.FC = () => {
                 setSelectedCity={setCity}
               />
             </InputBlock>
-          </div>
+          </Form>
         </SearchGroup>
         {show ? (
           <>
@@ -57,10 +61,10 @@ const DeliverymanList: React.FC = () => {
             <DeliverymanItem />
           </>
         ) : (
-            <HasNothing>
-              Nenhum entregador encontrado com a sua pesquisa.
-            </HasNothing>
-          )}
+          <HasNothing>
+            Nenhum entregador encontrado com a sua pesquisa.
+          </HasNothing>
+        )}
       </Content>
 
       {toggle && (

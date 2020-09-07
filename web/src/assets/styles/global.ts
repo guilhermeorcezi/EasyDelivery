@@ -57,6 +57,10 @@ body,input,button,textarea{
   border-radius: 8px 8px 0px 0px;
 }
 
+.input{
+  border-radius:8px;
+}
+
 .input-final{
   border-radius: 0px 0px 8px 8px;
 }

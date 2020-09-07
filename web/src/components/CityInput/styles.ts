@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.select`
-border-radius: 8px 8px 0px 0px;
+border-radius: 0px 0px 8px 0px;
 border: none;
 background: var(--color-input-background);
 color: var(--color-text-base);

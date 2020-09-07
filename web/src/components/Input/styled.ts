@@ -30,6 +30,12 @@ export const Container = styled.div<ContainerProps>`
   }
 
   ${props =>
+    props.isFilled &&
+    css`
+      border-color: var(--color-secundary);
+    `}
+
+  ${props =>
     props.hasError &&
     css`
       border-color: var(--color-error);
@@ -40,12 +46,6 @@ export const Container = styled.div<ContainerProps>`
     css`
       color: var(--color-secundary);
       border-color: var(--color-secundary);
-    `}
-
-  ${props =>
-    props.isFilled &&
-    css`
-      color: #ff9000;
     `}
 `;
 
@@ -69,7 +69,7 @@ export const InputStyled = styled.input<InputProps>`
           font-size: 24px;
         }
         & {
-          padding-top: 10px;
+          padding-top: 20px;
           padding-bottom: 10px;
         }
       `
@@ -87,7 +87,7 @@ export const InputStyled = styled.input<InputProps>`
         font-size: 24px;
       }
       & {
-        padding-top: 10px;
+        padding-top: 20px;
         padding-bottom: 10px;
       }
     `}

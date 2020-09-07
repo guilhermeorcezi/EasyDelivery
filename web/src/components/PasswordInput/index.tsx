@@ -8,6 +8,8 @@ import React, {
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 import Input from '../Input';
 
+import { Container } from './styles';
+
 interface Props {
   className?: string;
 }
@@ -20,7 +22,7 @@ const PasswordInput: React.FC<Props> = ({ className }) => {
   }
 
   return (
-    <>
+    <Container className="input-icon">
       <Input
         type={inputType}
         placeholder="Senha"
@@ -43,7 +45,7 @@ const PasswordInput: React.FC<Props> = ({ className }) => {
           onClick={e => handleChangeInputType('password')}
         />
       )}
-    </>
+    </Container>
   );
 };
 
