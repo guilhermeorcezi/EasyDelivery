@@ -68,13 +68,16 @@ const Login: React.FC = () => {
 
           <Actions>
             <div className="input-block">
-              <input
-                type="checkbox"
-                id="remember_pwd"
-                name="remember_pwd"
-                className="input-checkbox"
-              />
-              <label htmlFor="remember_pwd">Lembrar-me</label>
+              <label htmlFor="remember_pwd">
+                Lembrar-me
+                <input
+                  type="checkbox"
+                  id="remember_pwd"
+                  name="remember_pwd"
+                  className="input-checkbox"
+                />
+                <span className="checkmark" />
+              </label>
             </div>
             <Link to="/forgot-password">Esqueci minha senha</Link>
           </Actions>

@@ -57,15 +57,6 @@ export const Form = styled(Unform)`
     }
   }
 
-  .input-block {
-    display: flex;
-    align-items: center;
-  }
-
-  .input-checkbox {
-    margin-right: 16px;
-  }
-
   button {
     width: 352px;
     height: 56px;
@@ -113,6 +104,59 @@ export const Actions = styled.div`
     line-height: 24px;
     text-decoration: none;
     color: var(--color-text-complement);
+  }
+
+  .input-block {
+    display: flex;
+    align-items: center;
+  }
+
+  .input-checkbox {
+    margin-right: 16px;
+  }
+
+  input[type='checkbox'] {
+    visibility: hidden;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 8px;
+    background-color: var(--color-background);
+  }
+
+  input:checked ~ .checkmark {
+    background-color: var(--color-primary);
+  }
+
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .checkmark:after {
+    left: 6px;
+    bottom: 5px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  label {
+    padding-left: 24px;
   }
 `;
 
