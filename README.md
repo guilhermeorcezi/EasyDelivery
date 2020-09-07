@@ -1,5 +1,5 @@
 <h3 align="center">
-    <img alt="EasyDelivery" width="280" title="#logo" src="./github_assets/web01.png">
+    <img alt="EasyDelivery" width="560" title="#logo" src="./github_assets/web01.png">
     <br>
 </h3>
 <p align="center"> 🚀 <strong>EasyDelivery</strong>Platform to find a delivery man near you.
@@ -29,7 +29,7 @@
 
 ## :bookmark: About
 
-A platform that allows you to find a delivery man in your city or region looking for state and city to contact for specific services.
+A platform that allows you to find a delivery man in your city or region from serching for UF and City, enabling contact for specific services.
 
 ## :rocket: Technologies
 
@@ -37,7 +37,10 @@ The project was developed using the following technologies
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/en/)
+- [Docker](https://www.docker.com/)
+- [TypeORM with Postgres](https://typeorm.io/)
 - [ReactJS](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/)
 
 
 ## :fire: How to run
