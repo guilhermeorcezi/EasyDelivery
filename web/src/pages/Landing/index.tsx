@@ -16,12 +16,12 @@ const Landing: React.FC = () => (
       <h2>Plataforma para encontrar entregadores perto de você.</h2>
 
       <ButtonsContent>
-        <Link to="/sign-up" className="sign-up">
+        <Link to="/signup" className="sign-up">
           <FaUserAlt className="button-icon" size={24} />
           Cadastrar
         </Link>
 
-        <Link to="/sign-in" className="sign-in">
+        <Link to="/signin" className="sign-in">
           <FaSignInAlt className="button-icon" size={24} />
           Entrar
         </Link>

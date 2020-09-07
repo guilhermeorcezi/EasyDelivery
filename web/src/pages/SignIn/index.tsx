@@ -1,5 +1,8 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+
+import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
 
 import PasswordInput from '../../components/PasswordInput';
 import Input from '../../components/Input';
@@ -7,18 +10,43 @@ import BannerSide from '../../components/BannerSide';
 
 import { Container, FormSide, Form, Actions, Footer } from './styles';
 
-const Login: React.FC = () => {
-  const [email, setEmail] = useState('');
+interface SignInFormData {
+  email: string;
+  password: string;
+}
 
-  function handleLogin(e: FormEvent) {
-    e.preventDefault();
-  }
+const Login: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
+
+  const handleSubmit = useCallback(async (data: SignInFormData) => {
+    try {
+      formRef.current?.setErrors({});
+
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .required('E-mail obrigatório')
+          .email('Digite um email válido'),
+        password: Yup.string().required('Senha obrigatória'),
+      });
+
+      await schema.validate(data, { abortEarly: false });
+
+      /*  await signIn({
+        email: data.email,
+        password: data.password,
+      }); */
+
+      // history.push('/dashboard');
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
   return (
     <Container>
       <BannerSide />
       <FormSide>
-        <Form onSubmit={handleLogin}>
+        <Form onSubmit={handleSubmit} ref={formRef}>
           <h1>Fazer login</h1>
 
           <div className="input-block">
@@ -27,8 +55,6 @@ const Login: React.FC = () => {
               placeholder="E-mail"
               name="email"
               label="E-mail"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
             />
           </div>
           <div className="input-icon">

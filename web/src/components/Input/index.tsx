@@ -1,36 +1,58 @@
-import React, { InputHTMLAttributes } from 'react';
-import { InputStyled, LabelText } from './styled';
+import React, {
+  InputHTMLAttributes,
+  useRef,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
+import { useField } from '@unform/core';
+
+import { FiAlertCircle } from 'react-icons/fi';
+
+import { Container, LabelText, InputStyled } from './styled';
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
-  type: string;
   name: string;
-  value: string;
   label: string;
-  placeholder: string;
-  onChange?: (e: any) => void;
 }
 
-const Input: React.FC<IProps> = ({
-  label,
-  type,
-  name,
-  value,
-  onChange,
-  placeholder,
-}) => {
-  const fieldId = `id_${name}`;
+const Input: React.FC<IProps> = ({ label, name, ...rest }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
+
+  const { fieldName, defaultValue, error, registerField } = useField(name);
+
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputRef.current,
+      path: 'value',
+    });
+  }, [fieldName, registerField]);
+
+  const handleInputFocus = useCallback(() => {
+    setIsFocused(true);
+  }, []);
+
+  const handleInputBlur = useCallback(() => {
+    setIsFocused(false);
+  }, []);
 
   return (
     <>
-      <InputStyled
-        id={fieldId}
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-      />
-      <LabelText>{label}</LabelText>
+      <Container>
+        <InputStyled
+          name={name}
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+          defaultValue={defaultValue}
+          hasValue={inputRef.current?.value}
+          isFocused={isFocused}
+          ref={inputRef}
+          {...rest}
+        />
+        <LabelText>{label}</LabelText>
+      </Container>
     </>
   );
 };

@@ -9,8 +9,6 @@ import BannerSide from '../../components/BannerSide';
 import { Container, FormSide, Form } from './styles';
 
 const ForgotPassword: React.FC = () => {
-  const [email, setEmail] = useState('');
-
   function handleSignUp() { }
 
   return (
@@ -33,8 +31,6 @@ const ForgotPassword: React.FC = () => {
                 placeholder="E-mail"
                 name="email"
                 label="E-mail"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
               />
             </div>
           </div>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Form as Unform } from '@unform/web';
 
 export const Container = styled.main`
   height: 100vh;
@@ -20,10 +21,10 @@ export const FormSide = styled.div`
   align-items: center;
   justify-content: center;
   flex: 1;
-  padding:0 20px;
+  padding: 0 20px;
 `;
 
-export const Form = styled.form`
+export const Form = styled(Unform)`
   display: grid;
   align-items: center;
   justify-content: center;

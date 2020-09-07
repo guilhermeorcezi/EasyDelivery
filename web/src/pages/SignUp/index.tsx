@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent, useRef, useCallback } from 'react';
 
 import { Link } from 'react-router-dom';
+import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
+
 import goBackIcon from '../../assets/icons/goback-blue.png';
 
 import Input from '../../components/Input';
@@ -12,11 +15,14 @@ import { Container, FormSide, Form } from './styles';
 import CityInput from '../../components/CityInput';
 import BannerSide from '../../components/BannerSide';
 
+interface SignUpFormData {
+  name: string;
+  email: string;
+  whatsapp: string;
+  password: string;
+}
+
 const SignUp: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [whatsapp, setWhatsapp] = useState('');
   const [SelectedUF, setSelectedUF] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedFile, setSelectedFile] = useState<File>();
@@ -25,6 +31,32 @@ const SignUp: React.FC = () => {
     console.log(selectedCity);
   }
 
+  const formRef = useRef<FormHandles>(null);
+
+  const handleSubmit = useCallback(async (data: SignUpFormData) => {
+    try {
+      formRef.current?.setErrors({});
+
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .required('E-mail obrigatório')
+          .email('Digite um email válido'),
+        password: Yup.string().required('Senha obrigatória'),
+      });
+
+      await schema.validate(data, { abortEarly: false });
+
+      /*  await signIn({
+        email: data.email,
+        password: data.password,
+      }); */
+
+      // history.push('/dashboard');
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
   return (
     <Container>
       <FormSide>
@@ -32,7 +64,7 @@ const SignUp: React.FC = () => {
           <img src={goBackIcon} alt="Back" />
         </Link>
 
-        <Form onSubmit={handleSignUp}>
+        <Form onSubmit={handleSubmit}>
           <h1>Cadastre-se</h1>
           <span className="describe">
             Preencha os dados abaixo para começar.
@@ -42,14 +74,7 @@ const SignUp: React.FC = () => {
           </div>
 
           <div className="input-block">
-            <Input
-              type="text"
-              placeholder="Nome"
-              name="name"
-              label="Nome"
-              value={name}
-              onChange={e => setName(e.target.value)}
-            />
+            <Input type="text" placeholder="Nome" name="name" label="Nome" />
           </div>
           <div className="input-block">
             <Input
@@ -57,8 +82,6 @@ const SignUp: React.FC = () => {
               placeholder="E-mail"
               name="email"
               label="E-mail"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
             />
           </div>
 
@@ -72,8 +95,6 @@ const SignUp: React.FC = () => {
               placeholder="Whatsapp"
               name="whatsapp"
               label="Whatsapp"
-              value={whatsapp}
-              onChange={e => setWhatsapp(e.target.value)}
             />
           </div>
 
