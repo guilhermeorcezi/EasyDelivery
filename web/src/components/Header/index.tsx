@@ -41,7 +41,10 @@ const Header: React.FC<Props> = ({
               <img src={goBackIcon} className="goBack" alt="Go Back" />
             </Link>
           ) : (
-            <img src={`http://localhost:3333/files/${user.avatar}`} alt="User" />
+            <img
+              src={`http://localhost:3333/files/${user.avatar}`}
+              alt={user.name}
+            />
           )}
 
           {dashboardProfile && <span>{user.name}</span>}
@@ -60,7 +63,11 @@ const Header: React.FC<Props> = ({
       {children && profile && (
         <Content id="header-content">
           <div className="profile-content">
-            <img src={imgAvatar} className="profile-avatar" alt="User" />
+            <img
+              src={`http://localhost:3333/files/${user.avatar}`}
+              alt={user.name}
+              className="profile-avatar"
+            />
             <div className="upload-block">
               <img
                 src={imgAvatarUpload}
@@ -68,7 +75,7 @@ const Header: React.FC<Props> = ({
                 alt="Upload"
               />
             </div>
-            <span>Guilherme Orcezi</span>
+            <span>{user.name}</span>
           </div>
         </Content>
       )}
@@ -80,9 +87,7 @@ const Header: React.FC<Props> = ({
             </div>
             <div className="container-info">
               <img src={imgDeliveryman} alt="Deliveryman" />
-              Nós temos
-{' '}
-              {deliveryman_amount} entregadores.
+              Nós temos {deliveryman_amount} entregadores.
             </div>
           </div>
         </Content>

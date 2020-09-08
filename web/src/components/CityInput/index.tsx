@@ -24,7 +24,6 @@ const CityInput: React.FC<Props> = ({
   const [cities, setCities] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log(selectedUF);
     if (selectedUF === '0') return;
 
     axios
@@ -37,10 +36,10 @@ const CityInput: React.FC<Props> = ({
       });
   }, [selectedUF]);
 
-  function handleSelectCity(event: ChangeEvent<HTMLSelectElement>) {
-    const uf = event.target.value;
+  function handleSelectCity(event: ChangeEvent<HTMLSelectElement>): void {
+    const city = event.target.value;
 
-    setSelectedCity(uf);
+    setSelectedCity(city);
   }
 
   return (

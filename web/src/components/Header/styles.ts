@@ -105,6 +105,7 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   background: var(--color-primary);
+
   .profile-content {
     padding: 50px 0 120px 0;
     display: flex;
@@ -126,12 +127,13 @@ export const Content = styled.div`
     padding: 15px;
     border-radius: 50%;
     position: absolute;
-    top: 180px;
-    right: 50px;
+    top: 185px;
+    right: 28px;
     cursor: pointer;
   }
 
   .profile-content span {
+    text-transform: uppercase;
     font-family: Archivo;
     font-weight: bold;
     font-size: 36px;

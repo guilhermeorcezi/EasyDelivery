@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import multer from 'multer';
+
 import uploadConfig from '../config/upload';
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
@@ -7,6 +8,7 @@ import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import ShowFavoritedDeliverymanService from '../services/ShowFavoritedDeliverymanService';
 import CreateUserService from '../services/CreateUserService';
 import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
+import UpdateUserToDeliverymanService from '../services/UpdateUserToDeliverymanService';
 
 const usersRouter = Router();
 const upload = multer(uploadConfig);
@@ -51,6 +53,22 @@ usersRouter.patch(
       user_id: request.user.id,
       avatarFileName: request.file.filename,
     });
+
+    return response.json(user);
+  },
+);
+
+usersRouter.patch(
+  '/deliveryman',
+  ensureAuthenticated,
+  async (request, response) => {
+    const updateUserToDeliveryman = new UpdateUserToDeliverymanService();
+
+    const user_id = request.user.id;
+
+    const user = await updateUserToDeliveryman.execute(user_id);
+
+    delete user.password;
 
     return response.json(user);
   },

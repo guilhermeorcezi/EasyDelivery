@@ -31,45 +31,49 @@ const SignUp: React.FC = () => {
 
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(async (data: SignUpFormData) => {
-    try {
-      if (!SelectedUF || !selectedCity) {
-        return alert('Escolha UF e cidade');
-      }
+  const handleSubmit = useCallback(
+    async (data: SignUpFormData) => {
+      try {
+        console.log('selects', SelectedUF, selectedCity);
+        if (!SelectedUF || !selectedCity) {
+          return alert('Escolha UF e cidade');
+        }
 
-      formRef.current?.setErrors({});
+        formRef.current?.setErrors({});
 
-      const schema = Yup.object().shape({
-        name: Yup.string().required('Nome obrigatório'),
-        email: Yup.string()
-          .required('E-mail obrigatório')
-          .email('Digite um email válido'),
-        password: Yup.string().min(6, 'No mínimo 6 dígitos'),
-        whatsapp: Yup.string().matches(
-          phoneRegex,
-          'Precisa ser um número válido',
-        ),
-        uf: Yup.object().shape({
-          value: Yup.string().required('UF obrigatória'),
-        }),
-      });
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Nome obrigatório'),
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um email válido'),
+          password: Yup.string().min(6, 'No mínimo 6 dígitos'),
+          whatsapp: Yup.string().matches(
+            phoneRegex,
+            'Precisa ser um número válido',
+          ),
+          uf: Yup.object().shape({
+            value: Yup.string().required('UF obrigatória'),
+          }),
+        });
 
-      await schema.validate(data, { abortEarly: false });
+        await schema.validate(data, { abortEarly: false });
 
-      /*  await signIn({
+        /*  await signIn({
         email: data.email,
         password: data.password,
       }); */
 
-      // history.push('/dashboard');
-    } catch (err) {
-      if (err instanceof Yup.ValidationError) {
-        const errors = getValidationErrors(err);
-        formRef.current?.setErrors(errors);
+        // history.push('/dashboard');
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+          formRef.current?.setErrors(errors);
+        }
+        console.log(err);
       }
-      console.log(err);
-    }
-  }, []);
+    },
+    [selectedCity, SelectedUF],
+  );
 
   return (
     <Container>
