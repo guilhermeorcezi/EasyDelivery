@@ -18,8 +18,8 @@ const Routes: React.FC = () => {
       <Route path="/" exact component={Landing} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
-      <Route path="/forgot-password" component={ForgotPassword} />
-      <Route path="/main" component={Main} isPrivate />
+      <Route path="/forgot" component={ForgotPassword} />
+      <Route path="/dashboard" component={Main} isPrivate />
       <Route path="/profile" component={Profile} isPrivate />
       <Route path="/list" component={DeliverymanList} isPrivate />
       <Route component={Page404} />

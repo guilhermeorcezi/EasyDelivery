@@ -11,7 +11,7 @@ import { Container, Content, Footer, About, ButtonsContainer } from './styles';
 
 const Main: React.FC = () => (
   <Container id="page-main">
-    <Header user="Guilherme Orcezi" />
+    <Header dashboardProfile />
 
     <Content className="container">
       <div className="container-logo">

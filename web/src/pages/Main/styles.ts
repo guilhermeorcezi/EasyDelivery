@@ -54,8 +54,13 @@ export const Content = styled.div`
     padding: 20px 180px;
     flex-direction: row;
 
+    .banner-content {
+      justify-content: flex-end;
+    }
+
     .container-logo {
       width: 450px;
+      text-align: initial;
     }
 
     h2 {

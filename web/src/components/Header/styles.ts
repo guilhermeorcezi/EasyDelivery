@@ -55,14 +55,15 @@ export const Leftside = styled.div`
     height: 50px;
     border-radius: 50%;
     margin-right: 24px;
+  }
 
-    span {
-      font-family: Poppins;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 30px;
-    }
+  span {
+    text-transform: uppercase;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
   }
 `;
 
@@ -70,6 +71,15 @@ export const Rightside = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  button {
+    border: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: inherit;
+    background: none;
+    cursor: pointer;
+  }
 
   .logout {
     height: 50px;

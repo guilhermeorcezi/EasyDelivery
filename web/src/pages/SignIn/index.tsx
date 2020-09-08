@@ -1,8 +1,9 @@
 import React, { useState, FormEvent, useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
+import { useAuth } from '../../hooks/Auth';
 
 import PasswordInput from '../../components/PasswordInput';
 import Input from '../../components/Input';
@@ -18,6 +19,9 @@ interface SignInFormData {
 
 const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const history = useHistory();
+
+  const { signIn } = useAuth();
 
   const handleSubmit = useCallback(async (data: SignInFormData) => {
     try {
@@ -32,12 +36,12 @@ const Login: React.FC = () => {
 
       await schema.validate(data, { abortEarly: false });
 
-      /*  await signIn({
+      await signIn({
         email: data.email,
         password: data.password,
-      }); */
+      });
 
-      // history.push('/dashboard');
+      history.push('/dashboard');
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);

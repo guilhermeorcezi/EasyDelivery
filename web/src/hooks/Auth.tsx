@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
-
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import api from '../services/api';
 
@@ -13,9 +12,18 @@ interface signInCredentials {
   email: string;
   password: string;
 }
-
+interface userData {
+  id: string;
+  name: string;
+  email: string;
+  whatsapp: string;
+  avatar: string;
+  city: string;
+  uf: string;
+  is_deliveryman: boolean;
+}
 interface AuthContextData {
-  user: object;
+  user: userData;
   signIn(credentials: signInCredentials): Promise<void>;
   signOut(): void;
 }
@@ -51,7 +59,9 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ user: data.user as userData, signIn, signOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
