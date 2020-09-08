@@ -1,10 +1,4 @@
-import React, {
-  InputHTMLAttributes,
-  useRef,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import React, { useState } from 'react';
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 import Input from '../Input';
 
@@ -38,13 +32,13 @@ const PasswordInput: React.FC<Props> = ({ className }) => {
           onClick={e => handleChangeInputType('text')}
         />
       ) : (
-        <RiEyeOffLine
-          color="#8257E5"
-          size="24"
-          className="eye-icon"
-          onClick={e => handleChangeInputType('password')}
-        />
-      )}
+          <RiEyeOffLine
+            color="#8257E5"
+            size="24"
+            className="eye-icon"
+            onClick={e => handleChangeInputType('password')}
+          />
+        )}
     </Container>
   );
 };

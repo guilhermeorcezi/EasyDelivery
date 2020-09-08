@@ -33,6 +33,10 @@ const SignUp: React.FC = () => {
 
   const handleSubmit = useCallback(async (data: SignUpFormData) => {
     try {
+      if (!SelectedUF || !selectedCity) {
+        return alert('Escolha UF e cidade');
+      }
+
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
