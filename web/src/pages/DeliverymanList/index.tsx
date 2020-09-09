@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import { FaTimes } from 'react-icons/fa';
+import { FiSearch } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 
@@ -25,7 +26,7 @@ const DeliverymanList: React.FC = () => {
   const [description, setDescription] = useState('');
   const [service, setService] = useState('');
   const [show, setShow] = useState(true);
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   const formRef = useRef<FormHandles>(null);
 
@@ -53,6 +54,9 @@ const DeliverymanList: React.FC = () => {
                 setSelectedCity={setCity}
               />
             </InputBlock>
+            <button>
+              <FiSearch color="#FFF" size="24" />
+            </button>
           </Form>
         </SearchGroup>
         {show ? (

@@ -57,13 +57,15 @@ export const Leftside = styled.div`
     margin-right: 24px;
   }
 
-  span {
+  a {
     text-transform: uppercase;
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 30px;
+    color: var(--color-text-in-primary);
+    text-decoration: none;
   }
 `;
 

@@ -36,18 +36,19 @@ const Header: React.FC<Props> = ({
         hasChildren={Boolean(children)}
       >
         <Leftside className="left-side">
-          {children ? (
-            <Link to="/">
-              <img src={goBackIcon} className="goBack" alt="Go Back" />
-            </Link>
-          ) : (
+          <Link to={children ? '/' : 'profile'}>
             <img
-              src={`http://localhost:3333/files/${user.avatar}`}
-              alt={user.name}
+              src={
+                children
+                  ? goBackIcon
+                  : `http://localhost:3333/files/${user.avatar}`
+              }
+              className={children ? 'goBack' : ''}
+              alt={children ? 'GoBack' : user.name}
             />
-          )}
+          </Link>
 
-          {dashboardProfile && <span>{user.name}</span>}
+          {dashboardProfile && <Link to="profile">{user.name}</Link>}
         </Leftside>
         <div>{children}</div>
         <Rightside className="right-side">

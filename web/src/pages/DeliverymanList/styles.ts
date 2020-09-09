@@ -31,15 +31,29 @@ export const SearchGroup = styled.div`
 
   .input-group {
     display: flex;
+    align-items: flex-end;
+  }
+
+  button {
+    border: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: inherit;
+    background: var(--color-secundary);
+    cursor: pointer;
+    border-radius: 8px;
+    height: 47px;
+    width: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
 export const InputBlock = styled.div`
-  width: 50%;
+  width: 45%;
 
-  &:first-child {
-    margin-right: 20px;
-  }
+  margin-right: 13px;
 
   legend {
     font-family: Poppins;
@@ -98,8 +112,8 @@ export const ContactContainer = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
 
-    .input-block{
-      width:100%;
+    .input-block {
+      width: 100%;
     }
 
     h2 {
