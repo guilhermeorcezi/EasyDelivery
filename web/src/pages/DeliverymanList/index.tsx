@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 import { FiSearch } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
@@ -24,8 +24,15 @@ const DeliverymanList: React.FC = () => {
   const [description, setDescription] = useState('');
   const [service, setService] = useState('');
   const [deliveryman, setDeliveryman] = useState<Deliveryman[]>([]);
+  const [deliverymanAmount, setDeliverymanAmount] = useState(0);
 
   const formRef = useRef<FormHandles>(null);
+
+  useEffect(() => {
+    api.get('deliveryman/count').then(response => {
+      setDeliverymanAmount(response.data);
+    });
+  }, []);
 
   const handleSearch = useCallback(async () => {
     const response = await api.get('deliveryman', { params: { uf, city } });
@@ -35,7 +42,7 @@ const DeliverymanList: React.FC = () => {
 
   return (
     <Container id="page-list">
-      <Header list deliveryman_amount={2}>
+      <Header list deliveryman_amount={deliverymanAmount}>
         Buscar entregador
       </Header>
       <Content className="container">
@@ -68,10 +75,10 @@ const DeliverymanList: React.FC = () => {
             ))}
           </>
         ) : (
-          <HasNothing>
-            Nenhum entregador encontrado com a sua pesquisa.
-          </HasNothing>
-        )}
+            <HasNothing>
+              Nenhum entregador encontrado com a sua pesquisa.
+            </HasNothing>
+          )}
       </Content>
     </Container>
   );
