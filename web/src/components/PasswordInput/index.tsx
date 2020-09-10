@@ -11,7 +11,7 @@ interface Props {
 const PasswordInput: React.FC<Props> = ({ className }) => {
   const [inputType, setInputType] = useState('password');
 
-  function handleChangeInputType(type: string) {
+  function handleChangeInputType(type: string): void {
     setInputType(type);
   }
 

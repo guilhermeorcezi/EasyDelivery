@@ -14,10 +14,19 @@ import { Container, LabelText, InputStyled, Error } from './styled';
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label: string;
+  textarea?: boolean;
   className?: string;
 }
 
-const Input: React.FC<IProps> = ({ label, name, className, ...rest }) => {
+const Input: React.FC<IProps> = ({
+  label,
+  textarea,
+  name,
+  className,
+  ...rest
+}) => {
+  const tag = textarea ? 'textarea' : 'input';
+
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
@@ -48,8 +57,10 @@ const Input: React.FC<IProps> = ({ label, name, className, ...rest }) => {
         isFilled={isFilled}
         isFocused={isFocused}
         className={className}
+        tag={tag}
       >
         <InputStyled
+          as={tag}
           name={name}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}

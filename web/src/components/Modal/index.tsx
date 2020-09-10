@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaTimes } from 'react-icons/fa';
+import { FormHandles } from '@unform/core';
 import { Container, Form } from './styles';
 
 import { Deliveryman } from '../DeliverymanItem';
-import Textarea from '../Textarea';
 import api from '../../services/api';
+import Input from '../Input';
 
 interface ModalProps {
   deliveryman: Deliveryman;
@@ -20,6 +21,8 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
   const [description, setDescription] = useState('');
   const [services, setServices] = useState<ServicesInterface[]>([]);
 
+  const formRef = useRef<FormHandles>(null);
+
   useEffect(() => {
     api.get('services').then(response => {
       setServices(response.data);
@@ -33,17 +36,16 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
         <div>
           <FaTimes onClick={() => setOpenModal(false)} />
 
-          <Form>
+          <Form onSubmit={() => { }} ref={formRef}>
             <h2>Quase lá!</h2>
             <div className="input-group">
               <div className="input-block">
                 <legend>Descreva o serviço (Máximo 300 caracteres)</legend>
-                <Textarea
+                <Input
                   placeholder="Descrição"
                   name="description"
                   label="Descrição"
-                  value={description}
-                  onChange={e => setDescription(e.target.value)}
+                  textarea={true}
                 />
               </div>
               <div className="input-block">

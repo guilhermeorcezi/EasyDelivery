@@ -6,6 +6,7 @@ interface ContainerProps {
   hasError: boolean;
   isFilled: boolean;
   isFocused: boolean;
+  tag: string;
 }
 interface InputProps {
   hasValue: string | undefined;
@@ -47,6 +48,12 @@ export const Container = styled.div<ContainerProps>`
       color: var(--color-secundary);
       border-color: var(--color-secundary);
     `}
+
+  ${props =>
+    props.tag === 'textarea' &&
+    css`
+      min-height: 240px;
+    `}
 `;
 
 export const InputStyled = styled.input<InputProps>`
@@ -56,6 +63,8 @@ export const InputStyled = styled.input<InputProps>`
   border: 0;
   color: '#666360';
   padding-right: 74px;
+  max-width: 500px;
+  resize: none;
 
   ${({ value }) => {
     return (

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Form as Unform } from '@unform/web';
 
 export const Container = styled.div`
   position: absolute;
@@ -25,7 +26,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled(Unform)`
   background: var(--color-box-base);
   height: 600px;
   width: 700px;
