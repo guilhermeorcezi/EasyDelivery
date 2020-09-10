@@ -38,12 +38,6 @@ export const Contact = styled.button`
   border: none;
   cursor: pointer;
   padding: 15px 30px;
-
-  &:hover {
-    background: var(--color-secundary-dark);
-  }
-
-  a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,7 +47,11 @@ export const Contact = styled.button`
     font-size: 16px;
     line-height: 26px;
     color: var(--color-title-in-primary);
+
+  &:hover {
+    background: var(--color-secundary-dark);
   }
+
 
   img {
     margin-right: 10px;

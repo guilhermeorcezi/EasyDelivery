@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import imgAvatar from '../../assets/images/user-avatar.png';
 import logoutIcon from '../../assets/icons/logout-icon.svg';
 import goBackIcon from '../../assets/icons/goback-light.png';
 import imgLogo from '../../assets/images/logo.png';

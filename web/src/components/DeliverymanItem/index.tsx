@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { Container, Profile, Contact } from './styles';
 
-import imgUser from '../../assets/images/user-avatar.png';
 import iconWhatsapp from '../../assets/icons/whatsapp.png';
 import Modal from '../Modal';
 
@@ -36,10 +35,8 @@ const DeliverymanItem: React.FC<DeliverymanItemProps> = ({ deliveryman }) => {
         </Profile>
 
         <Contact onClick={() => setOpenModal(true)}>
-          <a href="#">
-            <img src={iconWhatsapp} alt="Whatsapp" />
-            Entrar em contato
-          </a>
+          <img src={iconWhatsapp} alt="Whatsapp" />
+          Entrar em contato
         </Contact>
       </Container>
       {openModal && (
