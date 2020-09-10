@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
                   placeholder="Descrição"
                   name="description"
                   label="Descrição"
-                  textarea={true}
+                  textarea
                 />
               </div>
               <div className="input-block">
