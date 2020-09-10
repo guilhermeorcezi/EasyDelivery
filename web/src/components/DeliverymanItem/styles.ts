@@ -25,11 +25,18 @@ export const Profile = styled.div`
   div {
     padding: 0 30px;
   }
+
+  h3,
+  span {
+    text-transform: uppercase;
+  }
 `;
 
-export const Contact = styled.div`
+export const Contact = styled.button`
   background: var(--color-secundary);
   border-radius: 8px;
+  border: none;
+  cursor: pointer;
   padding: 15px 30px;
 
   &:hover {

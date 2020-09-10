@@ -49,6 +49,8 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem('@EasyDelivery:user', JSON.stringify(user));
 
     setData({ token, user });
+
+    api.defaults.headers.Authorization = `Bearer ${token}`;
   }, []);
 
   const signOut = useCallback(() => {
@@ -56,6 +58,8 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.removeItem('@EasyDelivery:user');
 
     setData({} as AuthState);
+
+    api.defaults.headers.Authorization = ``;
   }, []);
 
   return (

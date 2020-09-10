@@ -1,15 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 
-import { FaTimes } from 'react-icons/fa';
 import { FiSearch } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
+import api from '../../services/api';
 
 import UfInput from '../../components/UfInput';
 import CityInput from '../../components/CityInput';
 import Header from '../../components/Header';
-import DeliverymanItem from '../../components/DeliverymanItem';
-import Textarea from '../../components/Textarea';
+import DeliverymanItem, { Deliveryman } from '../../components/DeliverymanItem';
 
 import {
   Container,
@@ -17,7 +16,6 @@ import {
   SearchGroup,
   InputBlock,
   HasNothing,
-  ContactContainer,
 } from './styles';
 
 const DeliverymanList: React.FC = () => {
@@ -25,14 +23,15 @@ const DeliverymanList: React.FC = () => {
   const [city, setCity] = useState('');
   const [description, setDescription] = useState('');
   const [service, setService] = useState('');
-  const [show, setShow] = useState(true);
-  const [toggle, setToggle] = useState(false);
+  const [deliveryman, setDeliveryman] = useState<Deliveryman[]>([]);
 
   const formRef = useRef<FormHandles>(null);
 
-  function handleToggle() {
-    setToggle(!toggle);
-  }
+  const handleSearch = useCallback(async () => {
+    const response = await api.get('deliveryman', { params: { uf, city } });
+
+    setDeliveryman(response.data);
+  }, [city, uf]);
 
   return (
     <Container id="page-list">
@@ -41,7 +40,7 @@ const DeliverymanList: React.FC = () => {
       </Header>
       <Content className="container">
         <SearchGroup className="search-group">
-          <Form className="input-group" onSubmit={() => { }} ref={formRef}>
+          <Form className="input-group" onSubmit={handleSearch} ref={formRef}>
             <InputBlock className="input-block">
               <legend>Seu estado</legend>
               <UfInput selectedUf={uf} name="uf" setSelectedUf={setUf} />
@@ -54,15 +53,19 @@ const DeliverymanList: React.FC = () => {
                 setSelectedCity={setCity}
               />
             </InputBlock>
-            <button>
+            <button type="submit">
               <FiSearch color="#FFF" size="24" />
             </button>
           </Form>
         </SearchGroup>
-        {show ? (
+        {deliveryman.length > 0 ? (
           <>
-            <DeliverymanItem />
-            <DeliverymanItem />
+            {deliveryman.map((deliverymanItem: Deliveryman) => (
+              <DeliverymanItem
+                deliveryman={deliverymanItem}
+                key={deliverymanItem.id}
+              />
+            ))}
           </>
         ) : (
           <HasNothing>
@@ -70,64 +73,6 @@ const DeliverymanList: React.FC = () => {
           </HasNothing>
         )}
       </Content>
-
-      {toggle && (
-        <ContactContainer className="contact-container">
-          <div className="contact-form">
-            <FaTimes onClick={handleToggle} />
-            <form>
-              <h2>Quase lá!</h2>
-              <div className="input-group">
-                <div className="input-block">
-                  <legend>Descreva o serviço (Máximo 300 caracteres)</legend>
-                  <Textarea
-                    placeholder="Descrição"
-                    name="description"
-                    label="Descrição"
-                    value={description}
-                    onChange={e => setDescription(e.target.value)}
-                  />
-                </div>
-                <div className="input-block">
-                  <legend>Tipo de serviço</legend>
-                  <select
-                    placeholder="Descrição"
-                    id="service"
-                    name="service"
-                    value={service}
-                  >
-                    <option key="a" value="a">
-                      A
-                    </option>
-                    <option key="a" value="a">
-                      B
-                    </option>
-                    <option key="a" value="a">
-                      C
-                    </option>
-                    <option key="a" value="a">
-                      D
-                    </option>
-                    <option key="a" value="a">
-                      Outros
-                    </option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="action-button">
-                <a
-                  href="https://api.whatsapp.com/send?phone=phone&text=text"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Confirmar
-                </a>
-              </div>
-            </form>
-          </div>
-        </ContactContainer>
-      )}
     </Container>
   );
 };
