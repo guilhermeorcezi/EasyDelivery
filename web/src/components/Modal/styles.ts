@@ -18,10 +18,10 @@ export const Container = styled.div`
     position: relative;
   }
 
-  svg {
+  svg.close-icon {
     position: absolute;
     top: 7px;
-    left: 6px;
+    right: 6px;
     cursor: pointer;
   }
 `;
@@ -57,7 +57,7 @@ export const Form = styled(Unform)`
     color: var(--color-text-complement);
   }
 
-  a {
+  button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,11 +72,14 @@ export const Form = styled(Unform)`
     padding: 15px 10px;
     width: 30%;
     margin: 0 auto;
+    border: none;
+    cursor: pointer;
   }
 
-  a:hover {
+  button:hover {
     background: var(--color-secundary-dark);
   }
+
   input {
     height: 56px;
     margin-bottom: 25px;

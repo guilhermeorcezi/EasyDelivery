@@ -11,6 +11,7 @@ interface ContainerProps {
 interface InputProps {
   hasValue: string | undefined;
   isFocused: boolean;
+  as?: string;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -65,6 +66,17 @@ export const InputStyled = styled.input<InputProps>`
   padding-right: 74px;
   max-width: 500px;
   resize: none;
+
+  ${({ as }) => {
+    return (
+      as === 'textarea' &&
+      css`
+        max-width: none;
+        padding-right: 45px;
+        width:100%;
+      `
+    );
+  }}
 
   ${({ value }) => {
     return (

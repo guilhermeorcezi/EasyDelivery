@@ -23,32 +23,35 @@ const Login: React.FC = () => {
 
   const { signIn } = useAuth();
 
-  const handleSubmit = useCallback(async (data: SignInFormData) => {
-    try {
-      formRef.current?.setErrors({});
+  const handleSubmit = useCallback(
+    async (data: SignInFormData) => {
+      try {
+        formRef.current?.setErrors({});
 
-      const schema = Yup.object().shape({
-        email: Yup.string()
-          .required('E-mail obrigatório')
-          .email('Digite um email válido'),
-        password: Yup.string().required('Senha obrigatória'),
-      });
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um email válido'),
+          password: Yup.string().required('Senha obrigatória'),
+        });
 
-      await schema.validate(data, { abortEarly: false });
+        await schema.validate(data, { abortEarly: false });
 
-      await signIn({
-        email: data.email,
-        password: data.password,
-      });
+        await signIn({
+          email: data.email,
+          password: data.password,
+        });
 
-      history.push('/dashboard');
-    } catch (err) {
-      if (err instanceof Yup.ValidationError) {
-        const errors = getValidationErrors(err);
-        formRef.current?.setErrors(errors);
+        history.push('/dashboard');
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+          formRef.current?.setErrors(errors);
+        }
       }
-    }
-  }, []);
+    },
+    [signIn, history],
+  );
 
   return (
     <Container>
