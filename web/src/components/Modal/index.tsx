@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { Container, Form } from './styles';
 
 import { Deliveryman } from '../DeliverymanItem';
 import Textarea from '../Textarea';
+import api from '../../services/api';
 
 interface ModalProps {
   deliveryman: Deliveryman;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface ServicesInterface {
+  id: string;
+  name: string;
+}
+
 const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
   const [description, setDescription] = useState('');
+  const [services, setServices] = useState<ServicesInterface[]>([]);
+
+  useEffect(() => {
+    api.get('services').then(response => {
+      setServices(response.data);
+    });
+  }, []);
 
   return (
     <>
@@ -36,21 +49,12 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
               <div className="input-block">
                 <legend>Tipo de serviço</legend>
                 <select placeholder="Descrição" id="service" name="service">
-                  <option key="a" value="a">
-                    A
-                  </option>
-                  <option key="a" value="a">
-                    B
-                  </option>
-                  <option key="a" value="a">
-                    C
-                  </option>
-                  <option key="a" value="a">
-                    D
-                  </option>
-                  <option key="a" value="a">
-                    Outros
-                  </option>
+                  <option value="0">Selecionar serviços</option>
+                  {services.map(service => (
+                    <option key={service.id} value={service.name}>
+                      {service.name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
