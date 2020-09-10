@@ -18,8 +18,6 @@ class SearchDeliverymanService {
       where: { uf, city, is_deliveryman: true },
     });
 
-    console.log('result', deliverymans);
-
     return deliverymans;
   }
 }

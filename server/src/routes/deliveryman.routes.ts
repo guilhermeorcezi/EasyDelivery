@@ -5,6 +5,7 @@ import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import SearchDeliverymanService from '../services/SearchDeliverymanService';
 import FavoriteDeliverymanService from '../services/FavoriteDeliverymanService';
 import DeleteFavoriteDeliverymanService from '../services/DeleteFavoriteDeliverymanService';
+import CountAllDeliverymanService from '../services/CountAllDeliverymanService';
 
 const deliverymanRouter = Router();
 
@@ -37,6 +38,18 @@ deliverymanRouter.get('/', ensureAuthenticated, async (request, response) => {
 
   return response.json(deliveryman);
 });
+
+deliverymanRouter.get(
+  '/count',
+  ensureAuthenticated,
+  async (request, response) => {
+    const countAllDeliveryman = new CountAllDeliverymanService();
+
+    const countDeliveryman = await countAllDeliveryman.execute();
+
+    return response.json(countDeliveryman);
+  },
+);
 
 deliverymanRouter.delete(
   '/favorite/:id',

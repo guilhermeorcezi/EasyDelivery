@@ -5,9 +5,10 @@ import React, {
   useRef,
   ChangeEvent,
 } from 'react';
-import { FaTimes } from 'react-icons/fa';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
+import { FaTimes } from 'react-icons/fa';
+import { Redirect } from 'react-router-dom';
 import api from '../../services/api';
 
 import { Container, Form } from './styles';
@@ -62,7 +63,9 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
-          description: Yup.string().required('Descreva o serviço'),
+          description: Yup.string()
+            .required('Descreva o serviço')
+            .max(300, 'Limite de 300 caracteres'),
         });
 
         await schema.validate(data, { abortEarly: false });
@@ -72,6 +75,8 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
           service_id: selectedService,
           deliveryman_id: deliveryman.id,
         });
+
+        return <Redirect to="/" />;
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -86,7 +91,7 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
     <>
       <Container>
         <div>
-          <FaTimes onClick={() => setOpenModal(false)} className="close-icon"/>
+          <FaTimes onClick={() => setOpenModal(false)} className="close-icon" />
 
           <Form onSubmit={handleSubmit} ref={formRef}>
             <h2>Quase lá!</h2>
@@ -108,7 +113,7 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
                   name="service"
                   onChange={handleSelectedService}
                 >
-                  <option value="0">Selecionar serviços</option>
+                  <option value="0">Selecionar serviço desejado</option>
                   {services.map(service => (
                     <option key={service.id} value={service.id}>
                       {service.name}

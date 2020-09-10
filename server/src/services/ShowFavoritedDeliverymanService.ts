@@ -9,13 +9,11 @@ class ShowFavoritedDeliverymanService {
     const userRepository = getRepository(User);
     const favoriteRepository = getRepository(Favorite);
 
-    //if (!logged_user) throw new AppError('Missing filters to search', 400);
+    // if (!logged_user) throw new AppError('Missing filters to search', 400);
 
     const favoritesDeliveryman = await favoriteRepository.find({
       where: { logged_user_id },
     });
-
-    console.log('result', favoritesDeliveryman);
 
     return favoritesDeliveryman;
   }

@@ -40,6 +40,12 @@ export const Form = styled(Unform)`
     width: auto;
   }
 
+  .input-group {
+    div:first-child {
+      margin-bottom: 20px;
+    }
+  }
+
   .input-block {
     width: 100%;
   }
