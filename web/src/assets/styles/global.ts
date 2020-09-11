@@ -48,7 +48,7 @@ body{
     justify-content:center;
 }
 
-body,input,button,textarea{
+body,input,button,a,textarea{
 	font: 500 1.6rem Poppins;
 	outline:0;
 }

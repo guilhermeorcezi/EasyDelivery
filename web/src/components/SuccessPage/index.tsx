@@ -8,10 +8,10 @@ import { Container, Content } from './styles';
 interface Props {
   title: string;
   message: string;
-  link: string;
+  setSuccessPage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Success: React.FC<Props> = ({ title, message, link }) => {
+const Success: React.FC<Props> = ({ title, message, setSuccessPage }) => {
   return (
     <Container id="page-signup-success">
       <Content className="container">
@@ -21,7 +21,9 @@ const Success: React.FC<Props> = ({ title, message, link }) => {
           <p>{message}</p>
         </div>
         <div className="footer">
-          <Link to="/">Voltar</Link>
+          <button type="button" onClick={() => setSuccessPage(false)}>
+            Voltar
+          </button>
         </div>
       </Content>
     </Container>

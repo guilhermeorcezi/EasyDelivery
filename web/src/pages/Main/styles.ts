@@ -1,20 +1,25 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.main`
+interface SuccessProps {
+  successPage: boolean;
+}
+
+export const Container = styled.main<SuccessProps>`
+  ${({ successPage }) => {
+    return successPage
+      ? css`
+          display: none;
+        `
+      : css`
+          display: flex;
+        `;
+  }}
+
   width: 100vw;
   height: 100vh;
-  display: flex;
   flex-direction: column;
   color: var(--color-text-in-primary);
   background: var(--color-background-primary);
-
-  @media (min-width: 1100px) {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: var(--color-background-primary);
-  }
 `;
 
 export const Content = styled.div`
@@ -125,7 +130,8 @@ export const ButtonsContainer = styled.div`
   justify-content: center;
   margin: 3.2rem 0;
 
-  a {
+  a,
+  button {
     width: 23rem;
     height: 7rem;
     border-radius: 0.8rem;
@@ -136,6 +142,8 @@ export const ButtonsContainer = styled.div`
     text-decoration: none;
     color: var(--color-button-text);
     transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
   }
 
   a:first-child {
@@ -150,7 +158,7 @@ export const ButtonsContainer = styled.div`
     background: var(--color-primary);
   }
 
-  a.sign-in {
+  button.sign-in {
     background: var(--color-secundary);
   }
 
@@ -158,7 +166,7 @@ export const ButtonsContainer = styled.div`
     background: var(--color-primary-light);
   }
 
-  a.sign-in:hover {
+  button.sign-in:hover {
     background: var(--color-secundary-dark);
   }
 

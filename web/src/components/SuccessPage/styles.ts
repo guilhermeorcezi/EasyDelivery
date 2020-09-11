@@ -34,13 +34,14 @@ export const Content = styled.div`
   .footer {
     margin-top: 80px;
 
-    a {
+    button {
       cursor: pointer;
       text-decoration: none;
       padding: 15px 40px;
       background: var(--color-secundary);
       border-radius: 8px;
       color: var(--color-title-in-primary);
+      border: none;
 
       &:hover {
         background: var(--color-secundary-dark);
