@@ -4,6 +4,7 @@ import { FaExchangeAlt, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import imgBanner from '../../assets/images/easydelibery-banner.svg';
 import logoImg from '../../assets/images/logo.png';
+import { useAuth } from '../../hooks/Auth';
 
 import Header from '../../components/Header';
 import Success from '../../components/SuccessPage';
@@ -13,6 +14,7 @@ import { Container, Content, Footer, About, ButtonsContainer } from './styles';
 
 const Main: React.FC = () => {
   const [successPage, setSuccessPage] = useState(false);
+  const { user } = useAuth();
 
   const handleUpdateToDeliveryman = useCallback(async () => {
     try {
@@ -26,6 +28,7 @@ const Main: React.FC = () => {
 
   return (
     <>
+      {console.log('oq', user.is_deliveryman)}
       <Container id="page-main" successPage={successPage}>
         <Header dashboardProfile />
 
@@ -43,8 +46,10 @@ const Main: React.FC = () => {
         <Footer className="content">
           <About className="welcome">
             <p>
-              Seja bem-vindo. Busque por entregadores perto de você ou mude para
-              o perfil de entregador(a).
+              Seja bem-vindo. Busque por entregadores perto de você
+              {!user.is_deliveryman &&
+                ` ou mude para o perfil de entregador(a)`}
+              .
             </p>
             <span>O que deseja fazer?</span>
           </About>
@@ -55,14 +60,16 @@ const Main: React.FC = () => {
               Buscar
             </Link>
 
-            <button
-              type="button"
-              onClick={() => handleUpdateToDeliveryman()}
-              className="sign-in"
-            >
-              <FaExchangeAlt className="button-icon" size={24} />
-              Fazer entregas
-            </button>
+            {!user.is_deliveryman && (
+              <button
+                type="button"
+                onClick={() => handleUpdateToDeliveryman()}
+                className="sign-in"
+              >
+                <FaExchangeAlt className="button-icon" size={24} />
+                Fazer entregas
+              </button>
+            )}
           </ButtonsContainer>
         </Footer>
       </Container>
