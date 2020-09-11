@@ -67,7 +67,7 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
 
         await schema.validate(data, { abortEarly: false });
 
-        api.post('delivery', {
+        await api.post('delivery', {
           description: data.description,
           service_id: selectedService,
           deliveryman_id: deliveryman.id,
