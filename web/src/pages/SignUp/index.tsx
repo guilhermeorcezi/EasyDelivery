@@ -34,7 +34,6 @@ const SignUp: React.FC = () => {
   const handleSubmit = useCallback(
     async (data: SignUpFormData) => {
       try {
-        console.log('selects', SelectedUF, selectedCity);
         if (!SelectedUF || !selectedCity) {
           return alert('Escolha UF e cidade');
         }
@@ -69,7 +68,7 @@ const SignUp: React.FC = () => {
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
         }
-        console.log(err);
+       // console.log(err);
       }
     },
     [selectedCity, SelectedUF],

@@ -8,7 +8,6 @@ import React, {
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { FaTimes } from 'react-icons/fa';
-import { Redirect } from 'react-router-dom';
 import api from '../../services/api';
 
 import { Container, Form } from './styles';
@@ -50,8 +49,6 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
   const handleSelectedService = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
       const service = event.target.value;
-      console.log('selecionado', service);
-
       setSelectedService(service);
     },
     [],
@@ -76,7 +73,18 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
           deliveryman_id: deliveryman.id,
         });
 
-        return <Redirect to="/" />;
+        const service = services.filter(
+          service => service.id === selectedService,
+        );
+
+        const serviceName = service[0].name;
+        const message = `Oi! Preciso de um serviço de entrega
+        ${serviceName !== 'Outros' ? ` sobre ${serviceName}.` : `!`} `;
+
+        window.open(
+          `https://api.whatsapp.com/send?phone=${deliveryman.whatsapp}&text=${message} ${data.description}`,
+          '_blank',
+        );
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -114,7 +122,7 @@ const Modal: React.FC<ModalProps> = ({ deliveryman, setOpenModal }) => {
                   onChange={handleSelectedService}
                 >
                   <option value="0">Selecionar serviço desejado</option>
-                  {services.map(service => (
+                  {services.map((service: ServicesInterface) => (
                     <option key={service.id} value={service.id}>
                       {service.name}
                     </option>

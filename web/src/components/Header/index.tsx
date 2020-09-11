@@ -29,7 +29,6 @@ const Header: React.FC<Props> = ({
 
   return (
     <>
-      {console.log('user logado', user)}
       <Container
         className={children ? 'header' : ''}
         hasChildren={Boolean(children)}
