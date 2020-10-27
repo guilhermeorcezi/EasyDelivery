@@ -29,7 +29,8 @@
         "@typescript-eslint"
     ],
     "rules": {
-      "no-use-before-define":"off",
+        "react/jsx-one-expression-per-line":"off",
+        "no-use-before-define":"off",
         "prettier/prettier": "error",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",

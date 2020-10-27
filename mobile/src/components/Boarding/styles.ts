@@ -1,22 +1,32 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
+
+interface IAbout {
+  number: string;
+}
 
 export const Container = styled.View`
   flex: 1;
   align-items: center;
 `;
 
-export const Header = styled.View`
+export const Header = styled.View<IAbout>`
   background-color: #8257e5;
   width: 100%;
   align-items: center;
   justify-content: center;
   height: 350px;
+
+  ${props =>
+    props.number === '02' &&
+    css`
+      background-color: #04d361;
+    `}
 `;
 
 export const About = styled.View`
   width: 100%;
   flex: 1;
-  padding: 96px 40px 96px 40px;
+  padding: 76px 40px 96px 40px;
   background-color: #e5e5e5;
 `;
 
@@ -37,4 +47,19 @@ export const TextAbout = styled.Text`
   max-width: 250px;
 `;
 
-export const Footer = styled.View``;
+export const Footer = styled.View`
+  margin-top: 60px;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const Dots = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const DotCheck = styled.Image`
+  margin-right: 10px;
+`;
+
+export const Dot = styled.Image``;
